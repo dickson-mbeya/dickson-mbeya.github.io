@@ -1,5 +1,5 @@
 # dickson-mbeya.github.io
-My personal website
+Have a look at my profile in GIS
 https://arcg.is/1e4bnu
 ## Education
 
@@ -9,4 +9,4 @@ https://arcg.is/1e4bnu
 
 -Cartography Technician at [Malawi University of Science and Technology](https://must.ac.mw)
 
-<iframe width="100%" height="800px" src="https://www.arcgis.com/apps/Cascade/index.html?appid=8032783972374003b39907cb0552d5b2" frameborder="0" scrolling="yes"></iframe>
+
