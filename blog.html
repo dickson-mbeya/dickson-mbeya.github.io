@@ -219,14 +219,7 @@
 
                 // ─── Configuration ───────────────────────────────────────────────
                 const POSTS_PER_PAGE = 5;
-                const BLOG_BASE = '/blog/';                // relative path to your blog
-                const COMMON_FEED_PATHS = [
-                    'feed.xml',
-                    'index.xml',
-                    'atom.xml',
-                    'rss.xml',
-                    'feed.rss'
-                ];
+                const BLOG_BASE = '/blog/';
 
                 // ─── DOM refs ──────────────────────────────────────────────────
                 const postsListEl = document.getElementById('posts-list');
@@ -279,21 +272,19 @@
 
                 // ─── Feed detection ──────────────────────────────────────────
                 async function discoverFeedUrl() {
-                    // First, try to fetch the blog homepage and look for RSS link
+                    // Try to fetch the blog homepage and look for RSS link
                     try {
                         const homeRes = await fetch(BLOG_BASE);
                         if (homeRes.ok) {
                             const html = await homeRes.text();
                             const parser = new DOMParser();
                             const doc = parser.parseFromString(html, 'text/html');
-                            // Look for <link rel="alternate" type="application/rss+xml" or atom
                             const links = doc.querySelectorAll('link[rel="alternate"]');
                             for (const link of links) {
                                 const type = link.getAttribute('type');
                                 if (type && (type.includes('rss') || type.includes('atom'))) {
                                     let href = link.getAttribute('href');
                                     if (href) {
-                                        // resolve relative URL
                                         const absolute = new URL(href, window.location.origin + BLOG_BASE).href;
                                         return absolute;
                                     }
@@ -302,17 +293,15 @@
                         }
                     } catch (_) { /* ignore */ }
 
-                    // If not found, try common paths
-                    for (const path of COMMON_FEED_PATHS) {
+                    // Fallback: try common paths
+                    const commonPaths = ['feed.xml', 'index.xml', 'atom.xml', 'rss.xml', 'feed.rss'];
+                    for (const path of commonPaths) {
                         const url = new URL(path, window.location.origin + BLOG_BASE).href;
                         try {
                             const resp = await fetch(url, { method: 'HEAD' });
-                            if (resp.ok) {
-                                return url;
-                            }
+                            if (resp.ok) return url;
                         } catch (_) { /* ignore */ }
                     }
-
                     return null;
                 }
 
@@ -320,8 +309,7 @@
                 async function fetchFeed(url) {
                     const response = await fetch(url);
                     if (!response.ok) throw new Error(`HTTP ${response.status}`);
-                    const text = await response.text();
-                    return text;
+                    return await response.text();
                 }
 
                 // ─── Parse RSS/Atom ──────────────────────────────────────────
@@ -331,13 +319,10 @@
 
                     // Check for parse errors
                     const parseError = doc.querySelector('parsererror');
-                    if (parseError) {
-                        throw new Error('XML parse error');
-                    }
+                    if (parseError) throw new Error('XML parse error');
 
                     const isRss = doc.querySelector('rss') !== null;
                     const isAtom = doc.querySelector('feed') !== null;
-
                     let items = [];
 
                     if (isRss) {
@@ -345,95 +330,86 @@
                         if (!channel) throw new Error('No channel element in RSS');
                         const itemEls = channel.querySelectorAll('item');
                         itemEls.forEach(item => {
+                            // --- Extract link ---
+                            let link = item.querySelector('link')?.textContent?.trim() || '';
+                            // Sometimes link is empty; try guid as fallback
+                            if (!link) {
+                                const guid = item.querySelector('guid')?.textContent?.trim() || '';
+                                if (guid) link = guid;
+                            }
+                            // Resolve relative URLs
+                            if (link && !link.startsWith('http')) {
+                                try {
+                                    link = new URL(link, window.location.origin + BLOG_BASE).href;
+                                } catch (_) { /* keep as is */ }
+                            }
+
+                            // --- Extract title ---
                             const title = item.querySelector('title')?.textContent?.trim() || 'Untitled';
-                            const link = item.querySelector('link')?.textContent?.trim() || '#';
+
+                            // --- Extract date ---
                             const pubDate = item.querySelector('pubDate')?.textContent?.trim() || '';
-                            const description = item.querySelector('description')?.textContent?.trim() || '';
+
+                            // --- Extract description / content ---
+                            let description = item.querySelector('description')?.textContent?.trim() || '';
                             const contentEnc = item.querySelector('content\\:encoded, encoded')?.textContent?.trim() || '';
+                            let fullContent = contentEnc || description;
+
+                            // Strip HTML tags for excerpt
+                            const excerpt = stripHtml(fullContent).slice(0, 160) + (fullContent.length > 160 ? '…' : '');
+
+                            // --- Categories ---
                             const categories = [];
                             item.querySelectorAll('category').forEach(cat => {
                                 const catText = cat.textContent?.trim();
                                 if (catText) categories.push(catText);
                             });
 
-                            let excerpt = description;
-                            if (!excerpt || excerpt.length < 20) {
-                                const temp = document.createElement('div');
-                                temp.innerHTML = contentEnc || description;
-                                excerpt = temp.textContent?.trim() || '';
-                            }
-                            if (excerpt.length > 160) {
-                                excerpt = excerpt.slice(0, 160) + '...';
-                            }
-
-                            let absoluteLink = link;
-                            if (link.startsWith('/')) {
-                                absoluteLink = window.location.origin + link;
-                            } else if (link.startsWith('http')) {
-                                absoluteLink = link;
-                            } else {
-                                try {
-                                    absoluteLink = new URL(link, window.location.origin + BLOG_BASE).href;
-                                } catch (_) {
-                                    absoluteLink = link;
-                                }
-                            }
-
-                            items.push({
-                                title,
-                                link: absoluteLink,
-                                date: pubDate,
-                                excerpt: excerpt || 'Read more…',
-                                categories,
-                                content: contentEnc || description
-                            });
+                            items.push({ title, link, date: pubDate, excerpt, categories, content: fullContent });
                         });
                     } else if (isAtom) {
                         const entryEls = doc.querySelectorAll('entry');
                         entryEls.forEach(entry => {
-                            const title = entry.querySelector('title')?.textContent?.trim() || 'Untitled';
+                            // --- Extract link ---
+                            let link = '';
                             const linkEl = entry.querySelector('link[rel="alternate"]');
-                            const link = linkEl?.getAttribute('href')?.trim() || '#';
-                            const pubDate = entry.querySelector('published')?.textContent?.trim() ||
-                                entry.querySelector('updated')?.textContent?.trim() || '';
-                            const summary = entry.querySelector('summary')?.textContent?.trim() || '';
-                            const contentEl = entry.querySelector('content');
-                            let content = contentEl?.textContent?.trim() || '';
-                            if (!content && contentEl) {
-                                const temp = document.createElement('div');
-                                temp.innerHTML = contentEl.innerHTML || '';
-                                content = temp.textContent?.trim() || '';
+                            if (linkEl) {
+                                link = linkEl.getAttribute('href')?.trim() || '';
                             }
+                            if (!link) {
+                                // Fallback to id
+                                const id = entry.querySelector('id')?.textContent?.trim() || '';
+                                if (id) link = id;
+                            }
+                            if (link && !link.startsWith('http')) {
+                                try {
+                                    link = new URL(link, window.location.origin + BLOG_BASE).href;
+                                } catch (_) { /* keep as is */ }
+                            }
+
+                            const title = entry.querySelector('title')?.textContent?.trim() || 'Untitled';
+                            const pubDate = entry.querySelector('published')?.textContent?.trim() ||
+                                            entry.querySelector('updated')?.textContent?.trim() || '';
+
+                            // --- Extract content ---
+                            let content = '';
+                            const contentEl = entry.querySelector('content');
+                            if (contentEl) {
+                                content = contentEl.textContent?.trim() || contentEl.innerHTML?.trim() || '';
+                            }
+                            if (!content) {
+                                const summary = entry.querySelector('summary')?.textContent?.trim() || '';
+                                content = summary;
+                            }
+                            const excerpt = stripHtml(content).slice(0, 160) + (content.length > 160 ? '…' : '');
+
                             const categories = [];
                             entry.querySelectorAll('category').forEach(cat => {
                                 const term = cat.getAttribute('term')?.trim();
                                 if (term) categories.push(term);
                             });
 
-                            let excerpt = summary || content;
-                            if (excerpt.length > 160) {
-                                excerpt = excerpt.slice(0, 160) + '...';
-                            }
-
-                            let absoluteLink = link;
-                            if (link.startsWith('/')) {
-                                absoluteLink = window.location.origin + link;
-                            } else if (!link.startsWith('http')) {
-                                try {
-                                    absoluteLink = new URL(link, window.location.origin + BLOG_BASE).href;
-                                } catch (_) {
-                                    absoluteLink = link;
-                                }
-                            }
-
-                            items.push({
-                                title,
-                                link: absoluteLink,
-                                date: pubDate,
-                                excerpt: excerpt || 'Read more…',
-                                categories,
-                                content
-                            });
+                            items.push({ title, link, date: pubDate, excerpt, categories, content });
                         });
                     } else {
                         throw new Error('Unknown feed format');
@@ -449,6 +425,14 @@
                     });
 
                     return items;
+                }
+
+                // ─── Helper: strip HTML tags ──────────────────────────────
+                function stripHtml(html) {
+                    if (!html) return '';
+                    const temp = document.createElement('div');
+                    temp.innerHTML = html;
+                    return temp.textContent || temp.innerText || '';
                 }
 
                 // ─── Render posts ────────────────────────────────────────────
@@ -470,6 +454,9 @@
                             categoryBadges = `<span class="badge bg-primary bg-opacity-10 text-primary fw-normal category-pill">Article</span>`;
                         }
 
+                        // Use post.link; if empty, fallback to blog base
+                        const linkHref = post.link || 'https://www.dicksonmbeya.com/blog/';
+
                         html += `
                             <div class="card overflow-hidden shadow rounded-4 border-0 mb-4 blog-post-card">
                                 <div class="card-body p-4">
@@ -477,9 +464,9 @@
                                         ${categoryBadges}
                                         ${formattedDate ? `<span class="text-muted small post-meta"><i class="bi bi-calendar3 me-1"></i>${formattedDate}</span>` : ''}
                                     </div>
-                                    <h2 class="fw-bolder h4 card-title"><a href="${escapeHtml(post.link)}" target="_blank">${escapeHtml(post.title)}</a></h2>
+                                    <h2 class="fw-bolder h4 card-title"><a href="${escapeHtml(linkHref)}" target="_blank">${escapeHtml(post.title)}</a></h2>
                                     <p class="card-text">${escapeHtml(post.excerpt)}</p>
-                                    <a href="${escapeHtml(post.link)}" target="_blank" class="btn btn-link text-primary p-0 fw-bolder text-decoration-none">
+                                    <a href="${escapeHtml(linkHref)}" target="_blank" class="btn btn-link text-primary p-0 fw-bolder text-decoration-none">
                                         Read More <i class="bi bi-arrow-right"></i>
                                     </a>
                                 </div>
@@ -566,9 +553,10 @@
                     let html = '';
                     recent.forEach(post => {
                         const date = post.date ? formatDate(post.date) : '';
+                        const link = post.link || '#';
                         html += `
                             <li class="recent-post-item">
-                                <a href="${escapeHtml(post.link)}" target="_blank" class="post-title d-block">${escapeHtml(post.title)}</a>
+                                <a href="${escapeHtml(link)}" target="_blank" class="post-title d-block">${escapeHtml(post.title)}</a>
                                 ${date ? `<span class="post-date">${date}</span>` : ''}
                             </li>
                         `;
@@ -624,17 +612,13 @@
                     showLoading();
 
                     try {
-                        // Discover the feed URL
-                        let feedUrl = await discoverFeedUrl();
+                        const feedUrl = await discoverFeedUrl();
                         if (!feedUrl) {
-                            console.warn('No feed URL discovered. Tried common paths and HTML detection.');
+                            console.warn('No feed URL discovered.');
                             showError();
                             return;
                         }
 
-                        console.log('Using feed URL:', feedUrl);
-
-                        // Fetch the feed
                         const xmlText = await fetchFeed(feedUrl);
                         const posts = parseFeed(xmlText);
 
@@ -659,7 +643,6 @@
                     }
                 }
 
-                // ─── Init ────────────────────────────────────────────────────
                 document.addEventListener('DOMContentLoaded', loadBlog);
             })();
         </script>
