@@ -1,0 +1,355 @@
+<!DOCTYPE html>
+<html lang="en">
+    <head>
+        <meta charset="utf-8" />
+        <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no" />
+        <meta name="description" content="R for GIS and Remote Sensing Mentorship Program – Learn geospatial analysis with R" />
+        <meta name="author" content="Dickson Mbeya" />
+        <title>R for GIS & Remote Sensing | Mentorship Program</title>
+        <link rel="icon" type="image/x-icon" href="assets/favicon.ico" />
+        <link rel="preconnect" href="https://fonts.googleapis.com" />
+        <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+        <link href="https://fonts.googleapis.com/css2?family=Plus+Jakarta+Sans:wght@100;200;300;400;500;600;700;800;900&display=swap" rel="stylesheet" />
+        <link href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.8.1/font/bootstrap-icons.css" rel="stylesheet" />
+        <link href="css/styles.css" rel="stylesheet" />
+        <style>
+            .program-hero {
+                background: linear-gradient(135deg, #5d9b32 0%, #8cad25 50%, #f07813 100%);
+                color: #fff;
+                padding: 4rem 0;
+                border-radius: 1.5rem;
+                margin-bottom: 3rem;
+            }
+            .program-hero h1 {
+                font-size: 3rem;
+                font-weight: 800;
+            }
+            .program-hero .badge-closed {
+                background-color: rgba(255, 255, 255, 0.2);
+                color: #fff;
+                font-size: 1rem;
+                padding: 0.5rem 1.5rem;
+                border-radius: 50px;
+                backdrop-filter: blur(4px);
+                border: 1px solid rgba(255,255,255,0.3);
+            }
+            .week-card {
+                border-left: 4px solid #5d9b32;
+                transition: transform 0.2s ease, box-shadow 0.2s ease;
+            }
+            .week-card:hover {
+                transform: translateY(-4px);
+                box-shadow: 0 10px 30px rgba(0,0,0,0.08);
+            }
+            .week-card .week-number {
+                background: #5d9b32;
+                color: #fff;
+                width: 36px;
+                height: 36px;
+                display: flex;
+                align-items: center;
+                justify-content: center;
+                border-radius: 50%;
+                font-weight: 700;
+                font-size: 0.9rem;
+                flex-shrink: 0;
+            }
+            .feature-icon-large {
+                font-size: 2.5rem;
+                color: #5d9b32;
+            }
+            .btn-apply {
+                background: #f07813;
+                border: none;
+                color: #fff;
+                font-weight: 600;
+                padding: 0.75rem 2.5rem;
+                border-radius: 50px;
+                transition: all 0.3s ease;
+            }
+            .btn-apply:hover {
+                background: #d96a0f;
+                transform: scale(1.02);
+                color: #fff;
+            }
+            .btn-apply:disabled {
+                opacity: 0.6;
+                cursor: not-allowed;
+                transform: none;
+            }
+            .faq-item {
+                border-bottom: 1px solid #e9ecef;
+                padding: 1.25rem 0;
+            }
+            .faq-item:last-child {
+                border-bottom: none;
+            }
+            .faq-item h5 {
+                font-weight: 700;
+                color: #212529;
+            }
+            .mentor-card {
+                background: #f8f9fa;
+                border-radius: 1rem;
+                padding: 2rem;
+                text-align: center;
+            }
+            .mentor-card .mentor-avatar {
+                width: 100px;
+                height: 100px;
+                background: linear-gradient(135deg, #5d9b32, #f07813);
+                border-radius: 50%;
+                display: flex;
+                align-items: center;
+                justify-content: center;
+                margin: 0 auto 1rem;
+                font-size: 2.5rem;
+                color: #fff;
+            }
+            @media (max-width: 768px) {
+                .program-hero h1 {
+                    font-size: 2.2rem;
+                }
+            }
+        </style>
+    </head>
+    <body class="d-flex flex-column h-100 bg-light">
+        <main class="flex-shrink-0">
+            <!-- Navigation (matching your portfolio) -->
+            <nav class="navbar navbar-expand-lg navbar-light bg-white py-3">
+                <div class="container px-5">
+                    <a class="navbar-brand" href="index.html"><span class="fw-bolder text-primary">Dickson Mbeya</span></a>
+                    <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation"><span class="navbar-toggler-icon"></span></button>
+                    <div class="collapse navbar-collapse" id="navbarSupportedContent">
+                        <ul class="navbar-nav ms-auto mb-2 mb-lg-0 small fw-bolder">
+                            <li class="nav-item"><a class="nav-link" href="index.html">Home</a></li>
+                            <li class="nav-item"><a class="nav-link" href="resume.html">Resume</a></li>
+                            <li class="nav-item"><a class="nav-link" href="projects.html">Projects</a></li>
+                            <li class="nav-item"><a class="nav-link" href="map-gallery.html">Map Gallery</a></li>
+                            <li class="nav-item"><a class="nav-link" href="mentorship.html">Mentorship</a></li>
+                            <li class="nav-item"><a class="nav-link" href="blog.html">Blog</a></li>
+                            <li class="nav-item"><a class="nav-link" href="contact.html">Contact</a></li>
+                        </ul>
+                    </div>
+                </div>
+            </nav>
+
+            <!-- Program Hero -->
+            <section class="container px-5">
+                <div class="program-hero text-center px-4 py-5">
+                    <span class="badge-closed d-inline-block mb-3">
+                        <i class="bi bi-exclamation-circle me-1"></i> APPLICATIONS ARE NOW CLOSED
+                    </span>
+                    <h1 class="display-4 fw-bolder">🌍 R for GIS &amp; Remote Sensing</h1>
+                    <p class="lead mb-4">Transform R into a Geospatial Powerhouse</p>
+                    <p class="mb-4 opacity-75" style="max-width: 700px; margin: 0 auto 1.5rem;">
+                        Join our 5-week virtual mentorship program and learn how to use R for spatial data analysis, remote sensing, cartography, and geovisualization.
+                    </p>
+                    <div class="d-flex flex-wrap justify-content-center gap-3 small">
+                        <span class="bg-white bg-opacity-25 px-4 py-2 rounded-pill"><i class="bi bi-calendar-event me-2"></i>5 Weeks</span>
+                        <span class="bg-white bg-opacity-25 px-4 py-2 rounded-pill"><i class="bi bi-clock me-2"></i>Starts: 21 Oct 2025</span>
+                        <span class="bg-white bg-opacity-25 px-4 py-2 rounded-pill"><i class="bi bi-laptop me-2"></i>Online (Live + Assignments)</span>
+                        <span class="bg-white bg-opacity-25 px-4 py-2 rounded-pill"><i class="bi bi-people me-2"></i>25 Mentees</span>
+                    </div>
+                </div>
+            </section>
+
+            <!-- Main Content -->
+            <section class="container px-5 mb-5">
+                <div class="row gx-5">
+                    <!-- Left Column: Curriculum -->
+                    <div class="col-lg-8">
+                        <!-- What You'll Learn -->
+                        <div class="mb-5">
+                            <h2 class="fw-bolder mb-4"><span class="text-gradient d-inline">🧭 What You'll Learn</span></h2>
+                            <div class="row g-4">
+                                <!-- Week 1 -->
+                                <div class="col-md-6">
+                                    <div class="card week-card h-100 shadow-sm border-0 rounded-4 p-4">
+                                        <div class="d-flex align-items-center gap-3 mb-3">
+                                            <span class="week-number">1</span>
+                                            <h5 class="fw-bolder mb-0">Foundations of R for Geospatial Work</h5>
+                                        </div>
+                                        <ul class="list-unstyled small text-muted mb-0">
+                                            <li><i class="bi bi-check-circle-fill text-primary me-2"></i>R &amp; RStudio setup</li>
+                                            <li><i class="bi bi-check-circle-fill text-primary me-2"></i>R basics &amp; spatial data types</li>
+                                            <li><i class="bi bi-check-circle-fill text-primary me-2"></i>Coordinate Reference Systems (CRS)</li>
+                                            <li><i class="bi bi-check-circle-fill text-primary me-2"></i>Basic mapping with <code>ggplot2</code> &amp; <code>sf</code></li>
+                                        </ul>
+                                    </div>
+                                </div>
+                                <!-- Week 2 -->
+                                <div class="col-md-6">
+                                    <div class="card week-card h-100 shadow-sm border-0 rounded-4 p-4">
+                                        <div class="d-flex align-items-center gap-3 mb-3">
+                                            <span class="week-number">2</span>
+                                            <h5 class="fw-bolder mb-0">Vector Data Analysis</h5>
+                                        </div>
+                                        <ul class="list-unstyled small text-muted mb-0">
+                                            <li><i class="bi bi-check-circle-fill text-primary me-2"></i>Spatial joins, buffers, clipping</li>
+                                            <li><i class="bi bi-check-circle-fill text-primary me-2"></i>Attribute queries &amp; thematic mapping with <code>tmap</code></li>
+                                        </ul>
+                                    </div>
+                                </div>
+                                <!-- Week 3 -->
+                                <div class="col-md-6">
+                                    <div class="card week-card h-100 shadow-sm border-0 rounded-4 p-4">
+                                        <div class="d-flex align-items-center gap-3 mb-3">
+                                            <span class="week-number">3</span>
+                                            <h5 class="fw-bolder mb-0">Raster Data &amp; Remote Sensing</h5>
+                                        </div>
+                                        <ul class="list-unstyled small text-muted mb-0">
+                                            <li><i class="bi bi-check-circle-fill text-primary me-2"></i>Working with satellite imagery</li>
+                                            <li><i class="bi bi-check-circle-fill text-primary me-2"></i>NDVI &amp; other spectral indices</li>
+                                            <li><i class="bi bi-check-circle-fill text-primary me-2"></i>Image classification &amp; time series analysis</li>
+                                        </ul>
+                                    </div>
+                                </div>
+                                <!-- Week 4 -->
+                                <div class="col-md-6">
+                                    <div class="card week-card h-100 shadow-sm border-0 rounded-4 p-4">
+                                        <div class="d-flex align-items-center gap-3 mb-3">
+                                            <span class="week-number">4</span>
+                                            <h5 class="fw-bolder mb-0">Cartography &amp; Geovisualization</h5>
+                                        </div>
+                                        <ul class="list-unstyled small text-muted mb-0">
+                                            <li><i class="bi bi-check-circle-fill text-primary me-2"></i>Map styling, layout &amp; exporting</li>
+                                            <li><i class="bi bi-check-circle-fill text-primary me-2"></i>Interactive maps with <code>leaflet</code></li>
+                                        </ul>
+                                    </div>
+                                </div>
+                                <!-- Week 5 -->
+                                <div class="col-md-6">
+                                    <div class="card week-card h-100 shadow-sm border-0 rounded-4 p-4">
+                                        <div class="d-flex align-items-center gap-3 mb-3">
+                                            <span class="week-number">5</span>
+                                            <h5 class="fw-bolder mb-0">Capstone Projects &amp; Career</h5>
+                                        </div>
+                                        <ul class="list-unstyled small text-muted mb-0">
+                                            <li><i class="bi bi-check-circle-fill text-primary me-2"></i>Final project presentations</li>
+                                            <li><i class="bi bi-check-circle-fill text-primary me-2"></i>Publishing maps &amp; dashboards</li>
+                                            <li><i class="bi bi-check-circle-fill text-primary me-2"></i>Career guidance in geospatial data science</li>
+                                        </ul>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+
+                        <!-- Why Join -->
+                        <div class="mb-5">
+                            <h2 class="fw-bolder mb-4"><span class="text-gradient d-inline">🎯 Why Join?</span></h2>
+                            <div class="row g-3">
+                                <div class="col-sm-6">
+                                    <div class="d-flex align-items-center gap-3 bg-white p-3 rounded-4 shadow-sm h-100">
+                                        <i class="bi bi-person-check feature-icon-large"></i>
+                                        <span>Learn from an experienced mentor</span>
+                                    </div>
+                                </div>
+                                <div class="col-sm-6">
+                                    <div class="d-flex align-items-center gap-3 bg-white p-3 rounded-4 shadow-sm h-100">
+                                        <i class="bi bi-folder2-open feature-icon-large"></i>
+                                        <span>Build a portfolio of geospatial projects</span>
+                                    </div>
+                                </div>
+                                <div class="col-sm-6">
+                                    <div class="d-flex align-items-center gap-3 bg-white p-3 rounded-4 shadow-sm h-100">
+                                        <i class="bi bi-people feature-icon-large"></i>
+                                        <span>Network with peers and professionals</span>
+                                    </div>
+                                </div>
+                                <div class="col-sm-6">
+                                    <div class="d-flex align-items-center gap-3 bg-white p-3 rounded-4 shadow-sm h-100">
+                                        <i class="bi bi-award feature-icon-large"></i>
+                                        <span>Receive a certificate of completion</span>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+
+                    <!-- Right Column: Sidebar -->
+                    <div class="col-lg-4">
+                        <!-- Mentor Card -->
+                        <div class="card shadow border-0 rounded-4 mb-4">
+                            <div class="card-body p-4">
+                                <h5 class="fw-bolder mb-3">👨‍🏫 Meet Your Mentor</h5>
+                                <div class="mentor-card">
+                                    <div class="mentor-avatar"><i class="bi bi-person"></i></div>
+                                    <h5 class="fw-bolder mb-1">Dickson Mbeya</h5>
+                                    <p class="small text-muted">BSc, MSc.</p>
+                                    <p class="small mb-2">Award-winning cartographer, Geospatial Educator &amp; GIS Specialist</p>
+                                    <div class="d-flex flex-wrap justify-content-center gap-1 small text-muted">
+                                        <span class="badge bg-light text-dark">GIS in R webinar</span>
+                                        <span class="badge bg-light text-dark">GEE for beginners</span>
+                                        <span class="badge bg-light text-dark">QGIS for beginners</span>
+                                        <span class="badge bg-light text-dark">QGIS Mastery Program</span>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+
+                        <!-- Apply / Status -->
+                        <div class="card shadow border-0 rounded-4 mb-4">
+                            <div class="card-body p-4 text-center">
+                                <h5 class="fw-bolder mb-3">📝 Applications</h5>
+                                <div class="alert alert-secondary mb-3" role="alert">
+                                    <i class="bi bi-exclamation-triangle-fill me-2"></i> Applications are now <strong>closed</strong>.
+                                </div>
+                                <p class="small text-muted">Deadline: 12 October 2025</p>
+                                <button class="btn btn-apply w-100" disabled>Apply Here (Closed)</button>
+                            </div>
+                        </div>
+
+                        <!-- FAQs -->
+                        <div class="card shadow border-0 rounded-4">
+                            <div class="card-body p-4">
+                                <h5 class="fw-bolder mb-3">❓ FAQs</h5>
+                                <div class="faq-item">
+                                    <h6 class="fw-bold">Do I need prior R experience?</h6>
+                                    <p class="small text-muted mb-0">Basic familiarity helps, but we’ll guide you through the essentials.</p>
+                                </div>
+                                <div class="faq-item">
+                                    <h6 class="fw-bold">Will sessions be recorded?</h6>
+                                    <p class="small text-muted mb-0">Yes, all sessions will be available for replay.</p>
+                                </div>
+                                <div class="faq-item">
+                                    <h6 class="fw-bold">Is there a certificate?</h6>
+                                    <p class="small text-muted mb-0">Yes, participants who complete the program will receive a certificate.</p>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </section>
+
+            <!-- Contact / Footer CTA -->
+            <section class="py-5 bg-white">
+                <div class="container px-5 text-center">
+                    <h3 class="fw-bolder mb-3">📬 Have Questions?</h3>
+                    <p class="text-muted mb-4">Feel free to reach out for any inquiries about the program.</p>
+                    <a href="mailto:dickmbeya@gmail.com" class="btn btn-primary btn-lg px-5 py-3 rounded-pill">
+                        <i class="bi bi-envelope me-2"></i>Email Dickson
+                    </a>
+                    <a href="https://www.linkedin.com/in/dickson-mbeya" target="_blank" class="btn btn-outline-secondary btn-lg px-5 py-3 rounded-pill ms-2">
+                        <i class="bi bi-linkedin me-2"></i>LinkedIn
+                    </a>
+                </div>
+            </section>
+        </main>
+
+        <!-- Footer (matching portfolio) -->
+        <footer class="bg-white py-4 mt-auto border-top">
+            <div class="container px-5">
+                <div class="row align-items-center justify-content-between flex-column flex-sm-row">
+                    <div class="col-auto"><div class="small m-0">Copyright &copy; Dickson Mbeya 2026</div></div>
+                    <div class="col-auto">
+                        <a class="small" href="contact.html">Contact</a>
+                    </div>
+                </div>
+            </div>
+        </footer>
+
+        <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.2.3/dist/js/bootstrap.bundle.min.js"></script>
+        <script src="js/scripts.js"></script>
+    </body>
+</html>

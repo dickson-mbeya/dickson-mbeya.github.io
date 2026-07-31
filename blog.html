@@ -1,0 +1,667 @@
+<!DOCTYPE html>
+<html lang="en">
+    <head>
+        <meta charset="utf-8" />
+        <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no" />
+        <meta name="description" content="Blog posts on GIS, Remote Sensing, and Conservation by Dickson Mbeya" />
+        <meta name="author" content="Dickson Mbeya" />
+        <title>Blog | Dickson Mbeya</title>
+        <link rel="icon" type="image/x-icon" href="assets/favicon.ico" />
+        <link rel="preconnect" href="https://fonts.googleapis.com" />
+        <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+        <link href="https://fonts.googleapis.com/css2?family=Plus+Jakarta+Sans:wght@100;200;300;400;500;600;700;800;900&display=swap" rel="stylesheet" />
+        <link href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.8.1/font/bootstrap-icons.css" rel="stylesheet" />
+        <link href="css/styles.css" rel="stylesheet" />
+        <style>
+            .blog-post-card {
+                transition: transform 0.2s ease, box-shadow 0.2s ease;
+            }
+            .blog-post-card:hover {
+                transform: translateY(-2px);
+                box-shadow: 0 1rem 2rem rgba(0,0,0,0.08) !important;
+            }
+            .blog-post-card .badge {
+                font-size: 0.7rem;
+                letter-spacing: 0.02em;
+            }
+            .blog-post-card .card-title {
+                font-size: 1.15rem;
+            }
+            .blog-post-card .card-title a {
+                color: #212529;
+                text-decoration: none;
+                transition: color 0.15s ease;
+            }
+            .blog-post-card .card-title a:hover {
+                color: #5d9b32;
+            }
+            .blog-post-card .card-text {
+                font-size: 0.95rem;
+                color: #6c757d;
+                display: -webkit-box;
+                -webkit-line-clamp: 3;
+                -webkit-box-orient: vertical;
+                overflow: hidden;
+            }
+            .loading-spinner {
+                display: flex;
+                justify-content: center;
+                align-items: center;
+                padding: 3rem 0;
+            }
+            .loading-spinner .spinner-border {
+                width: 2.5rem;
+                height: 2.5rem;
+                color: #5d9b32;
+            }
+            .feed-error {
+                text-align: center;
+                padding: 2rem 1rem;
+                color: #6c757d;
+            }
+            .feed-error i {
+                font-size: 2.5rem;
+                display: block;
+                margin-bottom: 1rem;
+                color: #dc3545;
+            }
+            .post-meta {
+                font-size: 0.85rem;
+                color: #6c757d;
+            }
+            .post-meta i {
+                margin-right: 0.25rem;
+            }
+            .category-pill {
+                font-size: 0.7rem;
+                padding: 0.25rem 0.75rem;
+                border-radius: 20px;
+                background: rgba(93, 155, 50, 0.1);
+                color: #5d9b32;
+                font-weight: 500;
+                display: inline-block;
+            }
+            .recent-post-item {
+                padding: 0.5rem 0;
+                border-bottom: 1px solid rgba(0,0,0,0.05);
+            }
+            .recent-post-item:last-child {
+                border-bottom: none;
+            }
+            .recent-post-item .post-title {
+                font-weight: 600;
+                font-size: 0.9rem;
+                color: #212529;
+                text-decoration: none;
+            }
+            .recent-post-item .post-title:hover {
+                color: #5d9b32;
+            }
+            .recent-post-item .post-date {
+                font-size: 0.75rem;
+                color: #adb5bd;
+            }
+        </style>
+    </head>
+    <body class="d-flex flex-column h-100 bg-light">
+        <main class="flex-shrink-0">
+            <!-- Navigation-->
+            <nav class="navbar navbar-expand-lg navbar-light bg-white py-3">
+                <div class="container px-5">
+                    <a class="navbar-brand" href="index.html"><span class="fw-bolder text-primary">Dickson Mbeya</span></a>
+                    <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation"><span class="navbar-toggler-icon"></span></button>
+                    <div class="collapse navbar-collapse" id="navbarSupportedContent">
+                        <ul class="navbar-nav ms-auto mb-2 mb-lg-0 small fw-bolder">
+                            <li class="nav-item"><a class="nav-link" href="index.html">Home</a></li>
+                            <li class="nav-item"><a class="nav-link" href="resume.html">Resume</a></li>
+                            <li class="nav-item"><a class="nav-link" href="projects.html">Projects</a></li>
+                            <li class="nav-item"><a class="nav-link" href="map-gallery.html">Map Gallery</a></li>
+                            <li class="nav-item"><a class="nav-link" href="mentorship.html">Mentorship</a></li>
+                            <li class="nav-item"><a class="nav-link" href="blog.html">Blog</a></li>
+                            <li class="nav-item"><a class="nav-link" href="contact.html">Contact</a></li>
+                        </ul>
+                    </div>
+                </div>
+            </nav>
+
+            <!-- Blog Section -->
+            <section class="py-5">
+                <div class="container px-5 mb-5">
+                    <div class="text-center mb-5">
+                        <h1 class="display-5 fw-bolder mb-0"><span class="text-gradient d-inline">Blog</span></h1>
+                        <p class="lead fw-normal text-muted mt-3">Insights and tutorials on GIS, Remote Sensing, and Conservation</p>
+                    </div>
+
+                    <div class="row gx-5">
+                        <!-- Blog Posts Column -->
+                        <div class="col-lg-8">
+                            <div id="blog-posts-container">
+                                <!-- Loading state -->
+                                <div id="loading-state" class="loading-spinner">
+                                    <div class="spinner-border" role="status">
+                                        <span class="visually-hidden">Loading posts...</span>
+                                    </div>
+                                </div>
+
+                                <!-- Posts will be rendered here -->
+                                <div id="posts-list"></div>
+
+                                <!-- Error state -->
+                                <div id="error-state" class="feed-error" style="display:none;">
+                                    <i class="bi bi-rss"></i>
+                                    <p>Unable to load blog posts at this time.</p>
+                                    <p class="small">Please check your internet connection or visit the <a href="https://www.dicksonmbeya.com/blog/" target="_blank">main blog page</a>.</p>
+                                    <p class="small text-muted mt-2">(If you're testing locally, feeds may not work due to CORS – try on the live domain.)</p>
+                                </div>
+
+                                <!-- No posts state -->
+                                <div id="empty-state" class="feed-error" style="display:none;">
+                                    <i class="bi bi-journal-text"></i>
+                                    <p>No blog posts found.</p>
+                                </div>
+
+                                <!-- Pagination -->
+                                <nav id="pagination-nav" aria-label="Blog pagination" style="display:none;">
+                                    <ul class="pagination justify-content-center" id="pagination-list">
+                                        <!-- Populated by JavaScript -->
+                                    </ul>
+                                </nav>
+                            </div>
+                        </div>
+
+                        <!-- Sidebar -->
+                        <div class="col-lg-4">
+                            <!-- About -->
+                            <div class="card shadow rounded-4 border-0 mb-4">
+                                <div class="card-body p-4">
+                                    <h5 class="fw-bolder mb-3">About This Blog</h5>
+                                    <p class="text-muted small">Sharing insights, tutorials, and lessons from my work in geospatial science, biodiversity informatics, and conservation in Malawi and beyond.</p>
+                                    <hr>
+                                    <h5 class="fw-bolder mb-3">Categories</h5>
+                                    <ul class="list-unstyled small mb-0" id="category-list">
+                                        <li class="mb-2 text-muted">Loading categories...</li>
+                                    </ul>
+                                </div>
+                            </div>
+
+                            <!-- Recent Posts -->
+                            <div class="card shadow rounded-4 border-0">
+                                <div class="card-body p-4">
+                                    <h5 class="fw-bolder mb-3">Recent Posts</h5>
+                                    <ul class="list-unstyled small mb-0" id="recent-posts-list">
+                                        <li class="text-muted">Loading recent posts...</li>
+                                    </ul>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </section>
+        </main>
+
+        <!-- Footer-->
+        <footer class="bg-white py-4 mt-auto">
+            <div class="container px-5">
+                <div class="row align-items-center justify-content-between flex-column flex-sm-row">
+                    <div class="col-auto"><div class="small m-0">Copyright &copy; Dickson Mbeya 2026</div></div>
+                    <div class="col-auto">
+                        <a class="small" href="contact.html">Contact</a>
+                    </div>
+                </div>
+            </div>
+        </footer>
+
+        <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.2.3/dist/js/bootstrap.bundle.min.js"></script>
+
+        <script>
+            (function() {
+                'use strict';
+
+                // ─── Configuration ───────────────────────────────────────────────
+                const POSTS_PER_PAGE = 5;
+                const BLOG_BASE = '/blog/';                // relative path to your blog
+                const COMMON_FEED_PATHS = [
+                    'feed.xml',
+                    'index.xml',
+                    'atom.xml',
+                    'rss.xml',
+                    'feed.rss'
+                ];
+
+                // ─── DOM refs ──────────────────────────────────────────────────
+                const postsListEl = document.getElementById('posts-list');
+                const loadingEl = document.getElementById('loading-state');
+                const errorEl = document.getElementById('error-state');
+                const emptyEl = document.getElementById('empty-state');
+                const paginationNav = document.getElementById('pagination-nav');
+                const paginationList = document.getElementById('pagination-list');
+                const recentListEl = document.getElementById('recent-posts-list');
+                const categoryListEl = document.getElementById('category-list');
+
+                // ─── State ─────────────────────────────────────────────────────
+                let allPosts = [];
+                let currentPage = 1;
+                let totalPages = 0;
+
+                // ─── Helpers ──────────────────────────────────────────────────
+                function showLoading() {
+                    loadingEl.style.display = 'flex';
+                    postsListEl.innerHTML = '';
+                    errorEl.style.display = 'none';
+                    emptyEl.style.display = 'none';
+                    paginationNav.style.display = 'none';
+                }
+
+                function showError() {
+                    loadingEl.style.display = 'none';
+                    postsListEl.innerHTML = '';
+                    errorEl.style.display = 'block';
+                    emptyEl.style.display = 'none';
+                    paginationNav.style.display = 'none';
+                }
+
+                function showEmpty() {
+                    loadingEl.style.display = 'none';
+                    postsListEl.innerHTML = '';
+                    errorEl.style.display = 'none';
+                    emptyEl.style.display = 'block';
+                    paginationNav.style.display = 'none';
+                }
+
+                function showPosts(posts, page) {
+                    loadingEl.style.display = 'none';
+                    errorEl.style.display = 'none';
+                    emptyEl.style.display = 'none';
+                    renderPosts(posts);
+                    renderPagination(page);
+                    paginationNav.style.display = 'block';
+                }
+
+                // ─── Feed detection ──────────────────────────────────────────
+                async function discoverFeedUrl() {
+                    // First, try to fetch the blog homepage and look for RSS link
+                    try {
+                        const homeRes = await fetch(BLOG_BASE);
+                        if (homeRes.ok) {
+                            const html = await homeRes.text();
+                            const parser = new DOMParser();
+                            const doc = parser.parseFromString(html, 'text/html');
+                            // Look for <link rel="alternate" type="application/rss+xml" or atom
+                            const links = doc.querySelectorAll('link[rel="alternate"]');
+                            for (const link of links) {
+                                const type = link.getAttribute('type');
+                                if (type && (type.includes('rss') || type.includes('atom'))) {
+                                    let href = link.getAttribute('href');
+                                    if (href) {
+                                        // resolve relative URL
+                                        const absolute = new URL(href, window.location.origin + BLOG_BASE).href;
+                                        return absolute;
+                                    }
+                                }
+                            }
+                        }
+                    } catch (_) { /* ignore */ }
+
+                    // If not found, try common paths
+                    for (const path of COMMON_FEED_PATHS) {
+                        const url = new URL(path, window.location.origin + BLOG_BASE).href;
+                        try {
+                            const resp = await fetch(url, { method: 'HEAD' });
+                            if (resp.ok) {
+                                return url;
+                            }
+                        } catch (_) { /* ignore */ }
+                    }
+
+                    return null;
+                }
+
+                // ─── Fetch feed ──────────────────────────────────────────────
+                async function fetchFeed(url) {
+                    const response = await fetch(url);
+                    if (!response.ok) throw new Error(`HTTP ${response.status}`);
+                    const text = await response.text();
+                    return text;
+                }
+
+                // ─── Parse RSS/Atom ──────────────────────────────────────────
+                function parseFeed(xmlText) {
+                    const parser = new DOMParser();
+                    const doc = parser.parseFromString(xmlText, 'text/xml');
+
+                    // Check for parse errors
+                    const parseError = doc.querySelector('parsererror');
+                    if (parseError) {
+                        throw new Error('XML parse error');
+                    }
+
+                    const isRss = doc.querySelector('rss') !== null;
+                    const isAtom = doc.querySelector('feed') !== null;
+
+                    let items = [];
+
+                    if (isRss) {
+                        const channel = doc.querySelector('channel');
+                        if (!channel) throw new Error('No channel element in RSS');
+                        const itemEls = channel.querySelectorAll('item');
+                        itemEls.forEach(item => {
+                            const title = item.querySelector('title')?.textContent?.trim() || 'Untitled';
+                            const link = item.querySelector('link')?.textContent?.trim() || '#';
+                            const pubDate = item.querySelector('pubDate')?.textContent?.trim() || '';
+                            const description = item.querySelector('description')?.textContent?.trim() || '';
+                            const contentEnc = item.querySelector('content\\:encoded, encoded')?.textContent?.trim() || '';
+                            const categories = [];
+                            item.querySelectorAll('category').forEach(cat => {
+                                const catText = cat.textContent?.trim();
+                                if (catText) categories.push(catText);
+                            });
+
+                            let excerpt = description;
+                            if (!excerpt || excerpt.length < 20) {
+                                const temp = document.createElement('div');
+                                temp.innerHTML = contentEnc || description;
+                                excerpt = temp.textContent?.trim() || '';
+                            }
+                            if (excerpt.length > 160) {
+                                excerpt = excerpt.slice(0, 160) + '...';
+                            }
+
+                            let absoluteLink = link;
+                            if (link.startsWith('/')) {
+                                absoluteLink = window.location.origin + link;
+                            } else if (link.startsWith('http')) {
+                                absoluteLink = link;
+                            } else {
+                                try {
+                                    absoluteLink = new URL(link, window.location.origin + BLOG_BASE).href;
+                                } catch (_) {
+                                    absoluteLink = link;
+                                }
+                            }
+
+                            items.push({
+                                title,
+                                link: absoluteLink,
+                                date: pubDate,
+                                excerpt: excerpt || 'Read more…',
+                                categories,
+                                content: contentEnc || description
+                            });
+                        });
+                    } else if (isAtom) {
+                        const entryEls = doc.querySelectorAll('entry');
+                        entryEls.forEach(entry => {
+                            const title = entry.querySelector('title')?.textContent?.trim() || 'Untitled';
+                            const linkEl = entry.querySelector('link[rel="alternate"]');
+                            const link = linkEl?.getAttribute('href')?.trim() || '#';
+                            const pubDate = entry.querySelector('published')?.textContent?.trim() ||
+                                entry.querySelector('updated')?.textContent?.trim() || '';
+                            const summary = entry.querySelector('summary')?.textContent?.trim() || '';
+                            const contentEl = entry.querySelector('content');
+                            let content = contentEl?.textContent?.trim() || '';
+                            if (!content && contentEl) {
+                                const temp = document.createElement('div');
+                                temp.innerHTML = contentEl.innerHTML || '';
+                                content = temp.textContent?.trim() || '';
+                            }
+                            const categories = [];
+                            entry.querySelectorAll('category').forEach(cat => {
+                                const term = cat.getAttribute('term')?.trim();
+                                if (term) categories.push(term);
+                            });
+
+                            let excerpt = summary || content;
+                            if (excerpt.length > 160) {
+                                excerpt = excerpt.slice(0, 160) + '...';
+                            }
+
+                            let absoluteLink = link;
+                            if (link.startsWith('/')) {
+                                absoluteLink = window.location.origin + link;
+                            } else if (!link.startsWith('http')) {
+                                try {
+                                    absoluteLink = new URL(link, window.location.origin + BLOG_BASE).href;
+                                } catch (_) {
+                                    absoluteLink = link;
+                                }
+                            }
+
+                            items.push({
+                                title,
+                                link: absoluteLink,
+                                date: pubDate,
+                                excerpt: excerpt || 'Read more…',
+                                categories,
+                                content
+                            });
+                        });
+                    } else {
+                        throw new Error('Unknown feed format');
+                    }
+
+                    // Sort by date (newest first)
+                    items.sort((a, b) => {
+                        const dateA = new Date(a.date);
+                        const dateB = new Date(b.date);
+                        if (isNaN(dateA.getTime())) return 1;
+                        if (isNaN(dateB.getTime())) return -1;
+                        return dateB - dateA;
+                    });
+
+                    return items;
+                }
+
+                // ─── Render posts ────────────────────────────────────────────
+                function renderPosts(posts) {
+                    if (!posts || posts.length === 0) {
+                        showEmpty();
+                        return;
+                    }
+
+                    let html = '';
+                    posts.forEach(post => {
+                        const formattedDate = post.date ? formatDate(post.date) : '';
+
+                        let categoryBadges = '';
+                        if (post.categories && post.categories.length > 0) {
+                            const topCat = post.categories[0];
+                            categoryBadges = `<span class="badge bg-primary bg-opacity-10 text-primary fw-normal category-pill">${escapeHtml(topCat)}</span>`;
+                        } else {
+                            categoryBadges = `<span class="badge bg-primary bg-opacity-10 text-primary fw-normal category-pill">Article</span>`;
+                        }
+
+                        html += `
+                            <div class="card overflow-hidden shadow rounded-4 border-0 mb-4 blog-post-card">
+                                <div class="card-body p-4">
+                                    <div class="d-flex align-items-center gap-3 mb-2 flex-wrap">
+                                        ${categoryBadges}
+                                        ${formattedDate ? `<span class="text-muted small post-meta"><i class="bi bi-calendar3 me-1"></i>${formattedDate}</span>` : ''}
+                                    </div>
+                                    <h2 class="fw-bolder h4 card-title"><a href="${escapeHtml(post.link)}" target="_blank">${escapeHtml(post.title)}</a></h2>
+                                    <p class="card-text">${escapeHtml(post.excerpt)}</p>
+                                    <a href="${escapeHtml(post.link)}" target="_blank" class="btn btn-link text-primary p-0 fw-bolder text-decoration-none">
+                                        Read More <i class="bi bi-arrow-right"></i>
+                                    </a>
+                                </div>
+                            </div>
+                        `;
+                    });
+
+                    postsListEl.innerHTML = html;
+                }
+
+                // ─── Render pagination ──────────────────────────────────────
+                function renderPagination(currentPage) {
+                    if (totalPages <= 1) {
+                        paginationNav.style.display = 'none';
+                        return;
+                    }
+
+                    let html = '';
+                    const prevDisabled = currentPage <= 1;
+                    html += `<li class="page-item ${prevDisabled ? 'disabled' : ''}">
+                                <a class="page-link" href="#" data-page="${currentPage - 1}" ${prevDisabled ? 'tabindex="-1" aria-disabled="true"' : ''}>Previous</a>
+                            </li>`;
+
+                    let startPage = Math.max(1, currentPage - 2);
+                    let endPage = Math.min(totalPages, currentPage + 2);
+
+                    if (startPage > 1) {
+                        html += `<li class="page-item"><a class="page-link" href="#" data-page="1">1</a></li>`;
+                        if (startPage > 2) {
+                            html += `<li class="page-item disabled"><span class="page-link">…</span></li>`;
+                        }
+                    }
+
+                    for (let p = startPage; p <= endPage; p++) {
+                        html += `<li class="page-item ${p === currentPage ? 'active' : ''}">
+                                    <a class="page-link" href="#" data-page="${p}">${p}</a>
+                                </li>`;
+                    }
+
+                    if (endPage < totalPages) {
+                        if (endPage < totalPages - 1) {
+                            html += `<li class="page-item disabled"><span class="page-link">…</span></li>`;
+                        }
+                        html += `<li class="page-item"><a class="page-link" href="#" data-page="${totalPages}">${totalPages}</a></li>`;
+                    }
+
+                    const nextDisabled = currentPage >= totalPages;
+                    html += `<li class="page-item ${nextDisabled ? 'disabled' : ''}">
+                                <a class="page-link" href="#" data-page="${currentPage + 1}" ${nextDisabled ? 'tabindex="-1" aria-disabled="true"' : ''}>Next</a>
+                            </li>`;
+
+                    paginationList.innerHTML = html;
+
+                    paginationList.querySelectorAll('a[data-page]').forEach(link => {
+                        link.addEventListener('click', function(e) {
+                            e.preventDefault();
+                            const page = parseInt(this.getAttribute('data-page'));
+                            if (!isNaN(page) && page !== currentPage && page >= 1 && page <= totalPages) {
+                                goToPage(page);
+                            }
+                        });
+                    });
+
+                    paginationNav.style.display = 'block';
+                }
+
+                function goToPage(page) {
+                    if (page < 1 || page > totalPages) return;
+                    currentPage = page;
+                    const start = (page - 1) * POSTS_PER_PAGE;
+                    const end = start + POSTS_PER_PAGE;
+                    const pagePosts = allPosts.slice(start, end);
+                    showPosts(pagePosts, page);
+                    document.getElementById('posts-list').scrollIntoView({ behavior: 'smooth', block: 'start' });
+                }
+
+                // ─── Sidebar ──────────────────────────────────────────────────
+                function renderRecentPosts(posts) {
+                    if (!posts || posts.length === 0) {
+                        recentListEl.innerHTML = '<li class="text-muted">No recent posts</li>';
+                        return;
+                    }
+                    const recent = posts.slice(0, 5);
+                    let html = '';
+                    recent.forEach(post => {
+                        const date = post.date ? formatDate(post.date) : '';
+                        html += `
+                            <li class="recent-post-item">
+                                <a href="${escapeHtml(post.link)}" target="_blank" class="post-title d-block">${escapeHtml(post.title)}</a>
+                                ${date ? `<span class="post-date">${date}</span>` : ''}
+                            </li>
+                        `;
+                    });
+                    recentListEl.innerHTML = html;
+                }
+
+                function renderCategories(posts) {
+                    if (!posts || posts.length === 0) {
+                        categoryListEl.innerHTML = '<li class="mb-2 text-muted">No categories</li>';
+                        return;
+                    }
+                    const catCount = {};
+                    posts.forEach(post => {
+                        if (post.categories && post.categories.length > 0) {
+                            post.categories.forEach(cat => {
+                                const key = cat.trim();
+                                if (key) {
+                                    catCount[key] = (catCount[key] || 0) + 1;
+                                }
+                            });
+                        }
+                    });
+                    const sorted = Object.entries(catCount).sort((a, b) => b[1] - a[1]);
+                    if (sorted.length === 0) {
+                        categoryListEl.innerHTML = '<li class="mb-2 text-muted">No categories</li>';
+                        return;
+                    }
+                    let html = '';
+                    sorted.forEach(([cat, count]) => {
+                        html += `<li class="mb-2"><a href="https://www.dicksonmbeya.com/blog/" target="_blank" class="text-decoration-none text-muted">${escapeHtml(cat)} (${count})</a></li>`;
+                    });
+                    categoryListEl.innerHTML = html;
+                }
+
+                // ─── Helpers ──────────────────────────────────────────────────
+                function formatDate(dateStr) {
+                    const date = new Date(dateStr);
+                    if (isNaN(date.getTime())) return dateStr;
+                    const options = { year: 'numeric', month: 'short', day: 'numeric' };
+                    return date.toLocaleDateString('en-US', options);
+                }
+
+                function escapeHtml(text) {
+                    if (!text) return '';
+                    const div = document.createElement('div');
+                    div.textContent = text;
+                    return div.innerHTML;
+                }
+
+                // ─── Main ────────────────────────────────────────────────────
+                async function loadBlog() {
+                    showLoading();
+
+                    try {
+                        // Discover the feed URL
+                        let feedUrl = await discoverFeedUrl();
+                        if (!feedUrl) {
+                            console.warn('No feed URL discovered. Tried common paths and HTML detection.');
+                            showError();
+                            return;
+                        }
+
+                        console.log('Using feed URL:', feedUrl);
+
+                        // Fetch the feed
+                        const xmlText = await fetchFeed(feedUrl);
+                        const posts = parseFeed(xmlText);
+
+                        if (!posts || posts.length === 0) {
+                            showEmpty();
+                            return;
+                        }
+
+                        allPosts = posts;
+                        totalPages = Math.ceil(allPosts.length / POSTS_PER_PAGE);
+
+                        renderRecentPosts(allPosts);
+                        renderCategories(allPosts);
+
+                        currentPage = 1;
+                        const firstPagePosts = allPosts.slice(0, POSTS_PER_PAGE);
+                        showPosts(firstPagePosts, currentPage);
+
+                    } catch (err) {
+                        console.error('Error loading blog feed:', err);
+                        showError();
+                    }
+                }
+
+                // ─── Init ────────────────────────────────────────────────────
+                document.addEventListener('DOMContentLoaded', loadBlog);
+            })();
+        </script>
+    </body>
+</html>
