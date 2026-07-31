@@ -312,6 +312,13 @@
                     return await response.text();
                 }
 
+                // ─── Helper: force www subdomain ──────────────────────────
+                function forceWwwDomain(url) {
+                    if (!url) return url;
+                    // Replace http://dicksonmbeya.com or https://dicksonmbeya.com with www version
+                    return url.replace(/https?:\/\/dicksonmbeya\.com\//g, 'https://www.dicksonmbeya.com/');
+                }
+
                 // ─── Parse RSS/Atom ──────────────────────────────────────────
                 function parseFeed(xmlText) {
                     const parser = new DOMParser();
@@ -343,6 +350,8 @@
                                     link = new URL(link, window.location.origin + BLOG_BASE).href;
                                 } catch (_) { /* keep as is */ }
                             }
+                            // ---- Force www subdomain ----
+                            link = forceWwwDomain(link);
 
                             // --- Extract title ---
                             const title = item.querySelector('title')?.textContent?.trim() || 'Untitled';
@@ -386,6 +395,8 @@
                                     link = new URL(link, window.location.origin + BLOG_BASE).href;
                                 } catch (_) { /* keep as is */ }
                             }
+                            // ---- Force www subdomain ----
+                            link = forceWwwDomain(link);
 
                             const title = entry.querySelector('title')?.textContent?.trim() || 'Untitled';
                             const pubDate = entry.querySelector('published')?.textContent?.trim() ||
