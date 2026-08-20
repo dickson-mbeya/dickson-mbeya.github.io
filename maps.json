@@ -1,6 +1,13 @@
 [
     {
         "category": "reference",
+        "img": "assets/chilembwe.png",
+        "title": "Epicenter of John Chilembwe's Uprising",
+        "desc": "John Chilembwe's Uprising was a revolt against colonial rule in Nyasaland (now Malawi) in 1915, led by John Chilembwe, a Baptist minister and educator. Chiradzulu district in Southern Malawi was the epicenter if his uprising.",
+        "date": "2026-08-21"
+    },
+    {
+        "category": "reference",
         "img": "assets/blantyre_city.png",
         "title": "Blantyre, Malawi",
         "desc": "Blantyre is the largest city in Malawi and serves as the country's main commercial center.",
