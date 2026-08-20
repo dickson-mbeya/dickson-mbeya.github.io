@@ -1,0 +1,67 @@
+[
+    {
+        "category": "sports",
+        "img": "assets/maps/WAFCON2026 Champions.png",
+        "title": "WAFCON 2026 Champions",
+        "desc": "Cameroon are the winners of the 2026 Women's Africa Cup of Nations which was held in Morocco had 16 nations participating. They defeated Malawi in the final, who were appearing for the first time.",
+        "date": "2026-08-19"
+    },
+    {
+        "category": "sports",
+        "img": "assets/maps/wafcon2026finalists.png",
+        "title": "WAFCON 2026 Finalists",
+        "desc": "Malawi, the Scorchers, and Cameroon, the Indomitable Lionesses, were finalists of the 2026 Women's Africa Cup of Nations was held in Morocco.",
+        "date": "2026-08-17"
+    },
+    {
+        "category": "sports",
+        "img": "assets/maps/wafcon2026.png",
+        "title": "WAFCON 2026 Participants",
+        "desc": "The 2026 Women's Africa Cup of Nations was held in Morocco had 16 nations participating with Malawi and Cape Verde appearing for the first time.",
+        "date": "2026-08-17"
+    },
+    {
+        "category": "sports",
+        "img": "assets/maps/Champions.png",
+        "title": "Afcon 2025 champions",
+        "desc": "The 2025 Africa Cup of Nations was the 35th edition of the Africa Cup of Nations, held in Morocco and Senegal emerged champions.",
+        "date": "2026-07-31"
+    },
+    {
+        "category": "elections",
+        "img": "assets/maps/2025malawielections.jpg",
+        "title": "2025 Malawi Presidential Elections Results",
+        "desc": "Professor Arthur Peter Mutharika emerged winner of the 2025 Malawi Presidential election with 56.8% of the total valid votes.",
+        "date": "2026-07-31",
+        "award":"🏆 Esri UC 2026 Layout for Print – Finalist",
+        "award_link": "https://mapgallery.esri.com/submission-detail/42113"
+    },
+    {
+        "category": "hydrology",
+        "img": "assets/maps/catchment.png",
+        "title": "River Catchment",
+        "desc": "Mpasadzi River Catchment Area, Kasungu District, Malawi.",
+        "date": "2026-07-31"
+    },
+    {
+        "category": "landcover",
+        "img": "assets/maps/chilwa_basin.png",
+        "title": "Land Cover",
+        "desc": "2020 Land Cover for Lake Chilwa Basin, Malawi-Mozambique.",
+        "date": "2026-07-31"
+    },
+    {
+        "category": "biodiversity",
+        "img": "assets/maps/EcosStatus.png",
+        "title": "Ecosystem Threat Status",
+        "desc": "The Red List of Ecosystems Category of Malawi's Ecosystems.",
+        "date": "2026-07-31"
+    },
+    {
+        "category": "languages",
+        "img": "assets/maps/malawi-languages.png",
+        "title": "Languages of Malawi",
+        "desc": "Dominant Languages of Malawi by District.",
+        "date": "2026-07-31"
+    }
+]

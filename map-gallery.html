@@ -33,7 +33,6 @@
                 height: 220px;
                 object-fit: cover;
             }
-            /* Lightbox modal image */
             .modal-img {
                 width: 100%;
                 height: auto;
@@ -46,11 +45,51 @@
             .map-item .card-body .badge {
                 pointer-events: none;
             }
+            .badge-new {
+                background-color: #28a745;
+                color: #fff;
+                font-size: 0.7rem;
+                padding: 0.25rem 0.5rem;
+                border-radius: 20px;
+                margin-left: 0.5rem;
+                vertical-align: middle;
+            }
+            .search-input {
+                max-width: 300px;
+                border-radius: 30px;
+                padding-left: 1rem;
+            }
+            .search-input:focus {
+                border-color: #5d9b32;
+                box-shadow: 0 0 0 0.2rem rgba(93, 155, 50, 0.25);
+            }
+                    /* Award badge styling */
+.badge-award {
+    display: inline-block;
+    background: linear-gradient(135deg, #ffd700, #f0a500);
+    color: #1a1a1a;
+    font-size: 0.7rem;
+    font-weight: 700;
+    padding: 0.25rem 0.7rem;
+    border-radius: 20px;
+    text-decoration: none;
+    transition: transform 0.2s ease, box-shadow 0.2s ease;
+    border: 1px solid #e6b800;
+    box-shadow: 0 2px 4px rgba(0,0,0,0.1);
+}
+.badge-award:hover {
+    transform: scale(1.03);
+    box-shadow: 0 4px 8px rgba(212, 175, 55, 0.4);
+    color: #000;
+}
+.award-badge-link {
+    text-decoration: none;
+}
         </style>
     </head>
     <body class="d-flex flex-column h-100 bg-light">
         <main class="flex-shrink-0">
-            <!-- Navigation-->
+            <!-- Navigation -->
             <nav class="navbar navbar-expand-lg navbar-light bg-white py-3">
                 <div class="container px-5">
                     <a class="navbar-brand" href="index.html"><span class="fw-bolder text-primary">Dickson Mbeya</span></a>
@@ -73,13 +112,21 @@
             <!-- Map Gallery Section -->
             <section class="py-5">
                 <div class="container px-5 mb-5">
-                    <div class="text-center mb-5">
+                    <div class="text-center mb-4">
                         <h1 class="display-5 fw-bolder mb-0"><span class="text-gradient d-inline">Map Gallery</span></h1>
                         <p class="lead fw-normal text-muted mt-3">A selection of cartographic and spatial analysis outputs from recent projects</p>
                     </div>
 
+                    <!-- Search Bar -->
+                    <div class="d-flex justify-content-center mb-3">
+                        <div class="input-group" style="max-width: 400px;">
+                            <span class="input-group-text bg-white border-end-0"><i class="bi bi-search"></i></span>
+                            <input type="text" class="form-control search-input border-start-0" id="searchInput" placeholder="Search maps by title or description...">
+                        </div>
+                    </div>
+
                     <!-- Filter Buttons -->
-                    <div class="d-flex justify-content-center flex-wrap gap-2 mb-5">
+                    <div class="d-flex justify-content-center flex-wrap gap-2 mb-4">
                         <button class="btn btn-outline-primary btn-sm filter-btn active" data-filter="all">All</button>
                         <button class="btn btn-outline-primary btn-sm filter-btn" data-filter="biodiversity">Biodiversity</button>
                         <button class="btn btn-outline-primary btn-sm filter-btn" data-filter="conservation">Conservation</button>
@@ -90,116 +137,11 @@
                     </div>
 
                     <!-- Map Grid -->
-                    <div class="row g-4" id="mapGrid">
-                                                                        <!-- Map 1 -->
-                        <div class="col-lg-4 col-md-6 map-item" data-category="sports">
-                            <div class="card h-100 shadow rounded-4 border-0 overflow-hidden" data-bs-toggle="modal" data-bs-target="#mapModal" data-img="assets/maps/WAFCON2026 Champions.png" data-title="WAFCON 2026 Champions" data-desc="Cameroon are the winners of the 2026 Women's Africa Cup of Nations which was held in Morocco had 16 nations participating. They defeated Malawi in the final,  who were appearing for the first time..">
-                                <img src="assets/maps/WAFCON2026 Champions.png" class="card-img-top" alt="WAFCON 2026 Champions">
-                                <div class="card-body p-4">
-                                    <h5 class="fw-bolder">WAFCON 2026 Champions</h5>
-                                    <p class="text-muted small">Cameroon are the winners of the 2026 Women's Africa Cup of Nations which was held in Morocco had 16 nations participating.</p>
-                                    <span class="badge bg-primary bg-opacity-10 text-primary fw-normal">Sports</span>
-                                </div>
-                            </div>
-                        </div>
-                                                <!-- Map 1 -->
-                        <div class="col-lg-4 col-md-6 map-item" data-category="sports">
-                            <div class="card h-100 shadow rounded-4 border-0 overflow-hidden" data-bs-toggle="modal" data-bs-target="#mapModal" data-img="assets/maps/wafcon2026finalists.png" data-title="WAFCON 2026 Finalists" data-desc="Malawi, the Scorchers, and Cameroon, the Indomitable Lionesses, were finalists of the 2026 Women's Africa Cup of Nations was held in Morocco.">
-                                <img src="assets/maps/wafcon2026finalists.png" class="card-img-top" alt="WAFCON 2026 Finalists">
-                                <div class="card-body p-4">
-                                    <h5 class="fw-bolder">WAFCON 2026 Finalists</h5>
-                                    <p class="text-muted small">Malawi, the Scorchers, and Cameroon, the Indomitable Lionesses, were finalists of the 2026 Women's Africa Cup of Nations was held in Morocco.</p>
-                                    <span class="badge bg-primary bg-opacity-10 text-primary fw-normal">Sports</span>
-                                </div>
-                            </div>
-                        </div>
-                                                                        <!-- Map 1 -->
-                        <div class="col-lg-4 col-md-6 map-item" data-category="sports">
-                            <div class="card h-100 shadow rounded-4 border-0 overflow-hidden" data-bs-toggle="modal" data-bs-target="#mapModal" data-img="assets/maps/wafcon2026.png" data-title="Afcon 2025 champions" data-desc="The 2026 Women's Africa Cup of Nations was held in Morocco had 16 nations participating with Malawi and Cape Verde appearing for the first time.">
-                                <img src="assets/maps/wafcon2026.png" class="card-img-top" alt="WAFCON 2026 Participants">
-                                <div class="card-body p-4">
-                                    <h5 class="fw-bolder">WAFCON 2026 Participants</h5>
-                                    <p class="text-muted small">The 2026 Women's Africa Cup of Nations was held in Morocco had 16 nations participating with Malawi and Cape Verde appearing for the first time.</p>
-                                    <span class="badge bg-primary bg-opacity-10 text-primary fw-normal">Sports</span>
-                                </div>
-                            </div>
-                        </div>
-                        <!-- Map 2 -->
-                        <div class="col-lg-4 col-md-6 map-item" data-category="sports">
-                            <div class="card h-100 shadow rounded-4 border-0 overflow-hidden" data-bs-toggle="modal" data-bs-target="#mapModal" data-img="assets/maps/Champions.png" data-title="Afcon 2025 champions" data-desc="The 2025 Africa Cup of Nations was the 35th edition of the Africa Cup of Nations, held in Morocco and Senegal emerged champions.">
-                                <img src="assets/maps/Champions.png" class="card-img-top" alt="Afcon 2025 champions">
-                                <div class="card-body p-4">
-                                    <h5 class="fw-bolder">Afcon 2025 champions</h5>
-                                    <p class="text-muted small">The 2025 Africa Cup of Nations was the 35th edition of the Africa Cup of Nations, held in Morocco and Senegal emerged champions.</p>
-                                    <span class="badge bg-primary bg-opacity-10 text-primary fw-normal">Sports</span>
-                                </div>
-                            </div>
-                        </div>
-
-                        <!-- Map 2 -->
-                        <div class="col-lg-4 col-md-6 map-item" data-category="elections">
-                            <div class="card h-100 shadow rounded-4 border-0 overflow-hidden" data-bs-toggle="modal" data-bs-target="#mapModal" data-img="assets/maps/2025malawielections.jpg" data-title="2025 Malawi Presidential Elections Results" data-desc="Professor Arthur Peter Mutharika emerged winner of the 2025 Malawi Presidential election with 56.8% of the total valid votes.">
-                                <img src="assets/maps/2025malawielections.jpg" class="card-img-top" alt="2025 Malawi Presidential Elections Results">
-                                <div class="card-body p-4">
-                                    <h5 class="fw-bolder">2025 Malawi Presidential Elections Results</h5>
-                                    <p class="text-muted small">Professor Arthur Peter Mutharika emerged winner of the 2025 Malawi Presidential election with 56.8% of the total valid votes.</p>
-                                    <span class="badge bg-primary bg-opacity-10 text-primary fw-normal">Elections</span>
-                                </div>
-                            </div>
-                        </div>
-
-                        <!-- Map 3 -->
-                        <div class="col-lg-4 col-md-6 map-item" data-category="hydrology">
-                            <div class="card h-100 shadow rounded-4 border-0 overflow-hidden" data-bs-toggle="modal" data-bs-target="#mapModal" data-img="assets/maps/catchment.png" data-title="River Catchment" data-desc="Mpasadzi River Catchment Area, Kasungu District, Malawi.">
-                                <img src="assets/maps/catchment.png" class="card-img-top" alt="River Catchment">
-                                <div class="card-body p-4">
-                                    <h5 class="fw-bolder">River Catchment</h5>
-                                    <p class="text-muted small">Mpasadzi River Catchment Area, Kasungu District, Malawi.</p>
-                                    <span class="badge bg-primary bg-opacity-10 text-primary fw-normal">Hydrology</span>
-                                </div>
-                            </div>
-                        </div>
-
-                        <!-- Map 4 -->
-                        <div class="col-lg-4 col-md-6 map-item" data-category="landcover">
-                            <div class="card h-100 shadow rounded-4 border-0 overflow-hidden" data-bs-toggle="modal" data-bs-target="#mapModal" data-img="assets/maps/chilwa_basin.png" data-title="Land Cover" data-desc="2020 Land Cover for Lake Chilwa Basin, Malawi-Mozambique.">
-                                <img src="assets/maps/chilwa_basin.png" class="card-img-top" alt="Land Cover">
-                                <div class="card-body p-4">
-                                    <h5 class="fw-bolder">Land Cover</h5>
-                                    <p class="text-muted small">2020 Land Cover for Lake Chilwa Basin, Malawi-Mozambique.</p>
-                                    <span class="badge bg-primary bg-opacity-10 text-primary fw-normal">Land Cover</span>
-                                </div>
-                            </div>
-                        </div>
-
-                        <!-- Map 5 -->
-                        <div class="col-lg-4 col-md-6 map-item" data-category="biodiversity">
-                            <div class="card h-100 shadow rounded-4 border-0 overflow-hidden" data-bs-toggle="modal" data-bs-target="#mapModal" data-img="assets/maps/EcosStatus.png" data-title="Ecosystem Threat Status" data-desc="The Red List of Ecosystems Category of Malawi's Ecosystems.">
-                                <img src="assets/maps/EcosStatus.png" class="card-img-top" alt="Ecosystem Threat Status">
-                                <div class="card-body p-4">
-                                    <h5 class="fw-bolder">Ecosystem Threat Status</h5>
-                                    <p class="text-muted small">The Red List of Ecosystems Category of Malawi's Ecosystems .</p>
-                                    <span class="badge bg-primary bg-opacity-10 text-primary fw-normal">Biodiversity</span>
-                                </div>
-                            </div>
-                        </div>
-
-                        <!-- Map 6 -->
-                        <div class="col-lg-4 col-md-6 map-item" data-category="languages">
-                            <div class="card h-100 shadow rounded-4 border-0 overflow-hidden" data-bs-toggle="modal" data-bs-target="#mapModal" data-img="assets/maps/malawi-languages.png" data-title="Languages of Malawi" data-desc="Dominant Languages of Malawi by District.">
-                                <img src="assets/maps/malawi-languages.png" class="card-img-top" alt="Languages of Malawi">
-                                <div class="card-body p-4">
-                                    <h5 class="fw-bolder">Languages of Malawi</h5>
-                                    <p class="text-muted small">Dominant Languages of Malawi by District.</p>
-                                    <span class="badge bg-primary bg-opacity-10 text-primary fw-normal">Languages</span>
-                                </div>
-                            </div>
-                        </div>
-                    </div>
+                    <div class="row g-4" id="mapGrid"></div>
                 </div>
             </section>
 
-            <!-- Call to action-->
+            <!-- Call to action -->
             <section class="py-5 bg-gradient-primary-to-secondary text-white">
                 <div class="container px-5 my-5">
                     <div class="text-center">
@@ -221,12 +163,13 @@
                     <div class="modal-body text-center">
                         <img src="" alt="Map" class="modal-img" id="modalMapImage">
                         <p class="mt-3 text-muted" id="modalMapDesc"></p>
+                        <!-- ✅ Modal date line REMOVED -->
                     </div>
                 </div>
             </div>
         </div>
 
-        <!-- Footer-->
+        <!-- Footer -->
         <footer class="bg-white py-4 mt-auto">
             <div class="container px-5">
                 <div class="row align-items-center justify-content-between flex-column flex-sm-row">
@@ -239,59 +182,6 @@
         </footer>
 
         <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.2.3/dist/js/bootstrap.bundle.min.js"></script>
-
-        <!-- Filter & Modal Script -->
-        <script>
-            document.addEventListener('DOMContentLoaded', function() {
-                // --- Filter functionality ---
-                const filterBtns = document.querySelectorAll('.filter-btn');
-                const mapItems = document.querySelectorAll('.map-item');
-
-                filterBtns.forEach(btn => {
-                    btn.addEventListener('click', function() {
-                        filterBtns.forEach(b => b.classList.remove('active'));
-                        this.classList.add('active');
-                        const filter = this.dataset.filter;
-                        mapItems.forEach(item => {
-                            if (filter === 'all' || item.dataset.category === filter) {
-                                item.style.display = 'block';
-                            } else {
-                                item.style.display = 'none';
-                            }
-                        });
-                    });
-                });
-
-                // --- Modal image injection ---
-                const mapModal = document.getElementById('mapModal');
-                const modalImage = document.getElementById('modalMapImage');
-                const modalTitle = document.querySelector('#mapModalLabel');
-                const modalDesc = document.getElementById('modalMapDesc');
-
-                // Use event delegation on the grid
-                document.getElementById('mapGrid').addEventListener('click', function(e) {
-                    // Find the closest card with data attributes
-                    const card = e.target.closest('.card[data-bs-toggle="modal"]');
-                    if (!card) return;
-
-                    // Prevent default if any link inside
-                    e.preventDefault();
-
-                    // Retrieve data from the card
-                    const imgSrc = card.dataset.img;
-                    const title = card.dataset.title || 'Map';
-                    const desc = card.dataset.desc || '';
-
-                    // Set modal content
-                    modalImage.src = imgSrc;
-                    modalTitle.textContent = title;
-                    modalDesc.textContent = desc;
-
-                    // Show the modal manually
-                    const modal = new bootstrap.Modal(mapModal);
-                    modal.show();
-                });
-            });
-        </script>
+        <script src="js/scripts.js"></script>
     </body>
 </html>
