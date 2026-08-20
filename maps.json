@@ -36,7 +36,7 @@
     },
     {
         "category": "demographics",
-        "img": "assets/maps/mw_population_density.png",
+        "img": "assets/maps/malawi_population_density.png",
         "title": "2018 Malawi Population Density",
         "desc": "2018 Population density in Malawi by district.",
         "date": "2026-08-20"
