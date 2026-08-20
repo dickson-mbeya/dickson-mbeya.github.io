@@ -1,6 +1,7 @@
 /*!
 * Start Bootstrap - Personal v1.0.1
 * Dynamic map gallery with JSON, search, "New!" badges, and award badges.
+* Smart path resolution for GitHub Pages compatibility.
 */
 
 // ============================================================
@@ -114,12 +115,25 @@ function renderMaps() {
 }
 
 // ============================================================
-// 5. FETCH DATA FROM JSON
+// 5. FETCH DATA FROM JSON (with smart path resolution)
 // ============================================================
 async function loadMaps() {
     try {
-        const response = await fetch('maps.json');
-        if (!response.ok) throw new Error(`HTTP error! status: ${response.status}`);
+        // Get the current script's location to build the correct path
+        const scripts = document.getElementsByTagName('script');
+        const currentScript = scripts[scripts.length - 1];
+        const scriptSrc = currentScript.src;
+        const scriptDir = scriptSrc.substring(0, scriptSrc.lastIndexOf('/') + 1);
+        // If the script is in 'js/' folder, go up one level to reach the root.
+        const baseDir = scriptDir.replace(/js\/$/, '');
+        const jsonUrl = baseDir + 'maps.json';
+
+        console.log('Fetching maps from:', jsonUrl);
+
+        const response = await fetch(jsonUrl);
+        if (!response.ok) {
+            throw new Error(`HTTP error! status: ${response.status}`);
+        }
         mapsData = await response.json();
         renderMaps();
     } catch (error) {
@@ -129,7 +143,8 @@ async function loadMaps() {
             grid.innerHTML = `
                 <div class="col-12 text-center py-5">
                     <p class="text-danger fw-bold">⚠️ Could not load map data.</p>
-                    <p class="text-muted small">Please check that <code>maps.json</code> exists in the root folder and refresh.</p>
+                    <p class="text-muted small">Error: ${error.message}</p>
+                    <p class="text-muted small">Please check the console for details.</p>
                 </div>
             `;
         }
