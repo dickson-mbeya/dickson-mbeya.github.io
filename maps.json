@@ -1,5 +1,54 @@
 [
     {
+        "category": "reference",
+        "img": "assets/maps/Bethlehem.png",
+        "title": "The birthplace of Jesus Christ",
+        "desc": "Bethlehem. The birthplace of Jesus Christ.",
+        "date": "2026-08-20"
+    },
+    {
+        "category": "reference",
+        "img": "assets/maps/e-waste.png",
+        "title": "E-Waste Generation Per Capita",
+        "desc": "E-Waste Generation Per Capita by region in 2014.",
+        "date": "2026-08-20"
+    },
+    {
+        "category": "reference",
+        "img": "assets/maps/south_america.png",
+        "title": "South America",
+        "desc": "South America Continent.",
+        "date": "2026-08-20"
+    },
+    {
+        "category": "reference",
+        "img": "assets/maps/time_zones.png",
+        "title": "Time Zones of the World",
+        "desc": "Time zones of the world.",
+        "date": "2026-08-20"
+    },
+    {
+        "category": "demographics",
+        "img": "assets/maps/mw_energy.png",
+        "title": "2028 Malawi Electricity Access",
+        "desc": "Percentage population using electricity for cooking in Malawi.",
+        "date": "2026-08-20"
+    },
+    {
+        "category": "demographics",
+        "img": "assets/maps/mw_population_density.png",
+        "title": "2018 Malawi Population Density",
+        "desc": "2018 Population density in Malawi by district.",
+        "date": "2026-08-20"
+    },
+    {
+        "category": "demographics",
+        "img": "assets/maps/mw_water_source.png",
+        "title": "2018 Malawi Population Wet Season Drinking Water Source",
+        "desc": "Percentage popluation whose source of drinking water during wet season in Malawi ir rivers or streams",
+        "date": "2026-08-20"
+    },
+    {
         "category": "transportation",
         "img": "assets/maps/phalombe.png",
         "title": "Phalombe District Road Network",
