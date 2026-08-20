@@ -1,5 +1,12 @@
 [
     {
+        "category": "transportation",
+        "img": "assets/maps/phalombe.png",
+        "title": "Phalombe District Road Network",
+        "desc": "The road network in Phalombe District, Malawi.",
+        "date": "2026-08-20"
+    },
+    {
         "category": "hydrology",
         "img": "assets/maps/zambezi_basin.png",
         "title": "Zambezi River Basin",
