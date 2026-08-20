@@ -8,9 +8,23 @@
     },
     {
         "category": "reference",
+        "img": "assets/Volcanic Eruptions.png",
+        "title": "Significant Global Volcanic Eruptions",
+        "desc": "Significant global volcanic erruptions with map projected to Spilhaus projection in order to emphasise the oceans",
+        "date": "2026-08-21"
+    },
+    {
+        "category": "reference",
         "img": "assets/blantyre_city.png",
         "title": "Blantyre, Malawi",
         "desc": "Blantyre is the largest city in Malawi and serves as the country's main commercial center.",
+        "date": "2026-08-21"
+    },
+    {
+        "category": "reference",
+        "img": "assets/main_languages.png",
+        "title": "Main Languages of Malawi",
+        "desc": "Malawi has over 5 languages, with Chichewa being the most widely spoken.",
         "date": "2026-08-21"
     },
     {
