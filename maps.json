@@ -1,10 +1,17 @@
 [
     {
         "category": "reference",
+        "img": "assets/blantyre_city.png",
+        "title": "Blantyre, Malawi",
+        "desc": "Blantyre is the largest city in Malawi and serves as the country's main commercial center.",
+        "date": "2026-08-21"
+    },
+    {
+        "category": "reference",
         "img": "assets/mulanje_mountain.png",
         "title": "Mulanje mountain, Malawi",
         "desc": "Mulanje Mountain is a large massif in southern Malawi, located in Mulanje District. It is the highest mountain in south-central Africa, with its highest peak, Sapitwa, reaching 3,002 metres (9,849 ft).",
-        "date": "2026-08-20"
+        "date": "2026-08-21"
     },
     {
         "category": "reference",
