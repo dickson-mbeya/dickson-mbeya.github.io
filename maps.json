@@ -1,10 +1,11 @@
 [
     {
-        "category": "reference",
-        "img": "assets/maps/chilembwe.png",
-        "title": "Epicenter of John Chilembwe's Uprising",
-        "desc": "John Chilembwe's Uprising was a revolt against colonial rule in Nyasaland (now Malawi) in 1915, led by John Chilembwe, a Baptist minister and educator. Chiradzulu district in Southern Malawi was the epicenter if his uprising.",
-        "date": "2026-08-21"
+        
+        "category": "biodiversity",
+        "img": "assets/maps/White Stork Migration.png",
+        "title": "White Stork (Ciconia ciconia) Migration",
+        "desc": "Map showing the migration occurrence points of white storks across different continents.",
+        "date": "2026-08-22"
     },
     {
         "category": "reference",
