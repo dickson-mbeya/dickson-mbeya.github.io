@@ -33,7 +33,7 @@ function isNew(dateString) {
     const today = new Date();
     const diffTime = today - mapDate;
     const diffDays = diffTime / (1000 * 60 * 60 * 24);
-    return diffDays <= 14;
+    return diffDays <= 2;
 }
 
 // ============================================================
