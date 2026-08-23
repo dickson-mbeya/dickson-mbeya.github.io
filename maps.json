@@ -1,6 +1,14 @@
 [
     {
         
+        "category": "reference",
+        "img": "assets/maps/Shire River REM.png",
+        "title": "Shire River Relative Elevation Model (REM)",
+        "desc": "Shire River Relative Elevation Model (REM) in Malawi, derived from the Shuttle Radar Topography Mission (SRTM) data. Shire River is the largest river in Malawi, flowing from Lake Malawi to the Zambezi River.",
+        "date": "2026-08-23"
+    },
+    {
+        
         "category": "biodiversity",
         "img": "assets/maps/White Stork Migration.png",
         "title": "White Stork (Ciconia ciconia) Migration",
