@@ -2,6 +2,14 @@
     {
         
         "category": "reference",
+        "img": "assets/maps/continents.png",
+        "title": "Continents of the world",
+        "desc": "Map of the world's continents. There are seven continents on Earth: Africa, Antarctica, Asia, Europe, North America, Oceania (Australia), and South America. On this map North America and South America have been  combined.",
+        "date": "2026-08-23"
+    },
+    {
+        
+        "category": "reference",
         "img": "assets/maps/Shire River REM.png",
         "title": "Shire River Relative Elevation Model (REM)",
         "desc": "Shire River Relative Elevation Model (REM) in Malawi, derived from the Shuttle Radar Topography Mission (SRTM) data. Shire River is the largest river in Malawi, flowing from Lake Malawi to the Zambezi River.",
