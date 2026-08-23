@@ -2,6 +2,14 @@
     {
         
         "category": "reference",
+        "img": "assets/maps/fuller.png",
+        "title": "Continents of the world - Fuller Projection",
+        "desc": "Our eyes are not used to seeing the world in the Fuller projection.",
+        "date": "2026-08-24"
+    },
+    {
+        
+        "category": "reference",
         "img": "assets/maps/continentsA3.png",
         "title": "Continents of the world - A3",
         "desc": "The world's continents - A3. A printable A3 map showing the world's continents. There are seven continents on Earth: Africa, Antarctica, Asia, Europe, North America, Oceania (Australia), and South America. On this map North America and South America have been  combined.",
