@@ -1,6 +1,14 @@
 [
     {
         
+        "category": "elections",
+        "img": "assets/maps/2025 Voter Registration by Gender.png",
+        "title": "2025 Malawi Elections Registration by Gender",
+        "desc": "Overview of voter registration in Malawi for the 2025 elections, broken down by gender.",
+        "date": "2026-08-27"
+    },
+    {
+        
         "category": "reference",
         "img": "assets/maps/fuller.png",
         "title": "Continents of the world - Fuller Projection",
