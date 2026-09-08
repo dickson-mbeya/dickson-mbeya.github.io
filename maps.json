@@ -2,6 +2,14 @@
     {
         
         "category": "reference",
+        "img": "assets/maps/likoma.png",
+        "title": "The Likoma Island.",
+        "desc": "Likoma Island, Northern Malawi.",
+        "date": "2026-09-08"
+    },
+    {
+        
+        "category": "reference",
         "img": "assets/maps/Equal Earth.png",
         "title": "The Equal Earth Map.",
         "desc": "The Equal Earth Map adopted by the United Nations General Assemply on 04 September 2026.",
