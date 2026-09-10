@@ -1,0 +1,905 @@
+/* ============================================
+   R for GIS and Remote Sensing Mentorship Program
+   External CSS
+   ============================================ */
+
+/* ---------- Base Styles ---------- */
+body {
+    font-family: 'Plus Jakarta Sans', sans-serif;
+    background-color: #f8f9fa;
+}
+
+/* ---------- Navigation ---------- */
+.navbar-brand {
+    font-weight: 700;
+}
+.text-primary {
+    color: #5d9b32 !important;
+}
+.navbar-nav .nav-link {
+    font-weight: 600;
+    font-size: 0.875rem;
+}
+.navbar-nav .nav-link:hover {
+    color: #5d9b32 !important;
+}
+
+/* ---------- Program Hero ---------- */
+.program-hero {
+    background: linear-gradient(135deg, #5d9b32 0%, #8cad25 50%, #f07813 100%);
+    color: #ffffff;
+    padding: 4rem 2rem;
+    border-radius: 1.5rem;
+    margin-bottom: 3rem;
+}
+
+.program-hero h1 {
+    font-size: 3rem;
+    font-weight: 800;
+    color: #ffffff;
+}
+
+.program-hero .lead {
+    color: #ffffff;
+    font-size: 1.25rem;
+}
+
+.program-hero .opacity-75 {
+    opacity: 0.85;
+}
+
+.program-hero .badge-closed {
+    background-color: rgba(255, 255, 255, 0.2);
+    color: #ffffff;
+    font-size: 1rem;
+    padding: 0.5rem 1.5rem;
+    border-radius: 50px;
+    backdrop-filter: blur(4px);
+    -webkit-backdrop-filter: blur(4px);
+    border: 1px solid rgba(255, 255, 255, 0.3);
+    display: inline-block;
+}
+
+.program-hero .info-badge {
+    background-color: rgba(255, 255, 255, 0.25);
+    padding: 0.5rem 1.5rem;
+    border-radius: 50px;
+    color: #ffffff;
+    font-size: 0.875rem;
+}
+
+.program-hero .info-badge i {
+    margin-right: 0.5rem;
+}
+
+
+/* ---------- Cohort Section ---------- */
+.cohort-section {
+    background: #ffffff;
+    border-radius: 1.5rem;
+    padding: 3rem;
+    box-shadow: 0 0.125rem 0.25rem rgba(0, 0, 0, 0.075);
+    border: 1px solid rgba(93, 155, 50, 0.1);
+}
+
+.cohort-badge {
+    display: inline-block;
+    background: linear-gradient(135deg, #5d9b32, #8cad25);
+    color: #ffffff;
+    font-size: 0.8rem;
+    font-weight: 600;
+    padding: 0.35rem 1rem;
+    border-radius: 50px;
+    margin-bottom: 1rem;
+    letter-spacing: 0.5px;
+}
+
+.cohort-title {
+    font-size: 2.5rem;
+    font-weight: 800;
+    color: #212529;
+    margin-bottom: 1rem;
+}
+
+.cohort-title span {
+    background: linear-gradient(135deg, #5d9b32, #f07813);
+    -webkit-background-clip: text;
+    -webkit-text-fill-color: transparent;
+    background-clip: text;
+}
+
+.cohort-description {
+    color: #6c757d;
+    font-size: 1.05rem;
+    line-height: 1.6;
+    margin-bottom: 2rem;
+    max-width: 90%;
+}
+
+.cohort-stats {
+    display: flex;
+    gap: 3rem;
+}
+
+.cohort-stats .stat-item {
+    text-align: left;
+}
+
+.cohort-stats .stat-number {
+    display: block;
+    font-size: 2.5rem;
+    font-weight: 800;
+    color: #5d9b32;
+    line-height: 1;
+}
+
+.cohort-stats .stat-label {
+    display: block;
+    font-size: 0.85rem;
+    color: #6c757d;
+    font-weight: 500;
+    margin-top: 0.25rem;
+}
+
+/* ---------- Cohort Section ---------- */
+.cohort-section {
+    background: #ffffff;
+    border-radius: 1.5rem;
+    padding: 3rem;
+    box-shadow: 0 0.125rem 0.25rem rgba(0, 0, 0, 0.075);
+    border: 1px solid rgba(93, 155, 50, 0.1);
+}
+
+.cohort-badge {
+    display: inline-block;
+    background: linear-gradient(135deg, #5d9b32, #8cad25);
+    color: #ffffff;
+    font-size: 0.8rem;
+    font-weight: 600;
+    padding: 0.35rem 1rem;
+    border-radius: 50px;
+    margin-bottom: 1rem;
+    letter-spacing: 0.5px;
+}
+
+.cohort-title {
+    font-size: 2.5rem;
+    font-weight: 800;
+    color: #212529;
+    margin-bottom: 1rem;
+}
+
+.cohort-description {
+    color: #6c757d;
+    font-size: 1.05rem;
+    line-height: 1.6;
+    margin-bottom: 2rem;
+    max-width: 90%;
+}
+
+.cohort-stats {
+    display: flex;
+    gap: 3rem;
+}
+
+.cohort-stats .stat-item {
+    text-align: left;
+}
+
+.cohort-stats .stat-number {
+    display: block;
+    font-size: 2.5rem;
+    font-weight: 800;
+    color: #5d9b32;
+    line-height: 1;
+}
+
+.cohort-stats .stat-label {
+    display: block;
+    font-size: 0.85rem;
+    color: #6c757d;
+    font-weight: 500;
+    margin-top: 0.25rem;
+}
+
+/* ---------- Cohort Map Image ---------- */
+.cohort-map-container {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    width: 100%;
+    border-radius: 1rem;
+    overflow: hidden;
+    background: #f8f9fa;
+    border: 1px solid rgba(93, 155, 50, 0.1);
+}
+
+.cohort-map-image {
+    width: 100%;
+    height: auto;
+    display: block;
+    object-fit: contain;
+    transition: transform 0.3s ease;
+}
+
+.cohort-map-image:hover {
+    transform: scale(1.01);
+}
+
+/* ---------- Cohort Responsive ---------- */
+@media (max-width: 992px) {
+    .cohort-section {
+        padding: 2rem;
+    }
+
+    .cohort-title {
+        font-size: 2rem;
+    }
+
+    .cohort-description {
+        max-width: 100%;
+    }
+
+    .cohort-stats {
+        gap: 2rem;
+    }
+}
+
+@media (max-width: 768px) {
+    .cohort-section {
+        padding: 1.5rem;
+        border-radius: 1rem;
+    }
+
+    .cohort-title {
+        font-size: 1.6rem;
+    }
+
+    .cohort-description {
+        font-size: 0.95rem;
+    }
+
+    .cohort-stats {
+        gap: 1.5rem;
+    }
+
+    .cohort-stats .stat-number {
+        font-size: 2rem;
+    }
+
+    .cohort-stats .stat-label {
+        font-size: 0.75rem;
+    }
+
+    .cohort-map-container {
+        margin-top: 1.5rem;
+    }
+}
+
+@media (max-width: 576px) {
+    .cohort-section {
+        padding: 1.25rem;
+        border-radius: 0.75rem;
+    }
+
+    .cohort-title {
+        font-size: 1.4rem;
+    }
+
+    .cohort-stats {
+        gap: 1rem;
+        flex-wrap: wrap;
+    }
+
+    .cohort-stats .stat-number {
+        font-size: 1.6rem;
+    }
+
+    .cohort-badge {
+        font-size: 0.7rem;
+        padding: 0.25rem 0.75rem;
+    }
+}
+
+/* ---------- Cohort Responsive ---------- */
+@media (max-width: 992px) {
+    .cohort-section {
+        padding: 2rem;
+    }
+
+    .cohort-title {
+        font-size: 2rem;
+    }
+
+    .cohort-description {
+        max-width: 100%;
+    }
+
+    .cohort-stats {
+        gap: 2rem;
+    }
+
+    .map-visual {
+        max-width: 100%;
+        height: 200px;
+    }
+}
+
+@media (max-width: 768px) {
+    .cohort-section {
+        padding: 1.5rem;
+        border-radius: 1rem;
+    }
+
+    .cohort-title {
+        font-size: 1.6rem;
+    }
+
+    .cohort-description {
+        font-size: 0.95rem;
+    }
+
+    .cohort-stats {
+        gap: 1.5rem;
+    }
+
+    .cohort-stats .stat-number {
+        font-size: 2rem;
+    }
+
+    .cohort-stats .stat-label {
+        font-size: 0.75rem;
+    }
+
+    .cohort-map-placeholder {
+        min-height: 180px;
+        margin-top: 1.5rem;
+    }
+
+    .map-visual {
+        height: 180px;
+    }
+
+    .map-visual .globe-icon {
+        font-size: 3.5rem;
+    }
+
+    .map-visual .map-label {
+        padding: 0.5rem 1rem;
+        bottom: 12px;
+        right: 12px;
+    }
+
+    .map-visual .label-number {
+        font-size: 1.2rem;
+    }
+
+    .map-visual .dot {
+        width: 8px;
+        height: 8px;
+    }
+}
+
+@media (max-width: 576px) {
+    .cohort-section {
+        padding: 1.25rem;
+        border-radius: 0.75rem;
+    }
+
+    .cohort-title {
+        font-size: 1.4rem;
+    }
+
+    .cohort-stats {
+        gap: 1rem;
+        flex-wrap: wrap;
+    }
+
+    .cohort-stats .stat-number {
+        font-size: 1.6rem;
+    }
+
+    .cohort-badge {
+        font-size: 0.7rem;
+        padding: 0.25rem 0.75rem;
+    }
+
+    .map-visual {
+        height: 150px;
+    }
+
+    .map-visual .globe-icon {
+        font-size: 2.5rem;
+    }
+
+    .map-visual .dot {
+        width: 6px;
+        height: 6px;
+    }
+}
+
+/* ---------- Text Gradient ---------- */
+.text-gradient {
+    background: linear-gradient(135deg, #5d9b32 0%, #8cad25 50%, #f07813 100%);
+    -webkit-background-clip: text;
+    -webkit-text-fill-color: transparent;
+    background-clip: text;
+}
+
+/* ---------- Week Cards ---------- */
+.week-card {
+    border-left: 4px solid #5d9b32;
+    transition: transform 0.2s ease, box-shadow 0.2s ease;
+    cursor: default;
+    background: #ffffff;
+    border-radius: 1rem;
+    padding: 1.5rem;
+    height: 100%;
+    box-shadow: 0 0.125rem 0.25rem rgba(0, 0, 0, 0.075);
+}
+
+.week-card:hover {
+    transform: translateY(-4px);
+    box-shadow: 0 10px 30px rgba(0, 0, 0, 0.08) !important;
+}
+
+.week-card .week-number {
+    background: #5d9b32;
+    color: #ffffff;
+    width: 36px;
+    height: 36px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    border-radius: 50%;
+    font-weight: 700;
+    font-size: 0.9rem;
+    flex-shrink: 0;
+}
+
+.week-card code {
+    background: #e9ecef;
+    padding: 0.1rem 0.4rem;
+    border-radius: 4px;
+    font-size: 0.8rem;
+    color: #5d9b32;
+}
+
+.week-card ul li {
+    margin-bottom: 0.5rem;
+    font-size: 0.875rem;
+    color: #6c757d;
+}
+
+.week-card ul li:last-child {
+    margin-bottom: 0;
+}
+
+.week-card ul li i {
+    color: #5d9b32;
+}
+
+/* ---------- Feature Icons ---------- */
+.feature-icon-large {
+    font-size: 2.5rem;
+    color: #5d9b32;
+    flex-shrink: 0;
+}
+
+/* ---------- Apply Button ---------- */
+.btn-apply {
+    background: #f07813;
+    border: none;
+    color: #ffffff;
+    font-weight: 600;
+    padding: 0.75rem 2.5rem;
+    border-radius: 50px;
+    transition: all 0.3s ease;
+}
+
+.btn-apply:hover:not(:disabled) {
+    background: #d96a0f;
+    transform: scale(1.02);
+    color: #ffffff;
+}
+
+.btn-apply:disabled {
+    opacity: 0.6;
+    cursor: not-allowed;
+    transform: none;
+}
+
+/* ---------- FAQ Items ---------- */
+.faq-item {
+    border-bottom: 1px solid #e9ecef;
+    padding: 1.25rem 0;
+}
+
+.faq-item:last-child {
+    border-bottom: none;
+}
+
+.faq-item h6 {
+    font-weight: 700;
+    color: #212529;
+    margin-bottom: 0.5rem;
+}
+
+.faq-item p {
+    margin-bottom: 0;
+    color: #6c757d;
+    font-size: 0.875rem;
+}
+
+/* ---------- Mentor Card ---------- */
+.mentor-card {
+    background: #f8f9fa;
+    border-radius: 1rem;
+    padding: 2rem;
+    text-align: center;
+}
+
+.mentor-card .mentor-avatar {
+    width: 100px;
+    height: 100px;
+    background: linear-gradient(135deg, #5d9b32, #f07813);
+    border-radius: 50%;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    margin: 0 auto 1rem;
+    overflow: hidden;
+    flex-shrink: 0;
+}
+
+.mentor-card .mentor-avatar-img {
+    width: 50%;
+    height: 50%;
+    object-fit: cover;
+    display: block;
+    align-items: center;
+}
+
+.mentor-card .mentor-avatar i {
+    font-size: 2.5rem;
+    color: #ffffff;
+}
+
+.mentor-card .badge {
+    font-weight: 400;
+    padding: 0.35rem 0.75rem;
+    border-radius: 50px;
+    background-color: #e9ecef;
+    color: #212529;
+    font-size: 0.75rem;
+}
+
+/* ---------- One-on-One Mentorship Section ---------- */
+.one-on-one-section .card {
+    transition: transform 0.3s ease, box-shadow 0.3s ease;
+    border-radius: 1rem;
+    overflow: hidden;
+}
+
+.one-on-one-section .card:hover {
+    transform: translateY(-6px);
+    box-shadow: 0 20px 40px rgba(0, 0, 0, 0.12) !important;
+}
+
+.one-on-one-section .display-1 {
+    color: #5d9b32;
+    font-size: 4rem;
+}
+
+.one-on-one-section .btn-primary {
+    background: #5d9b32;
+    border: none;
+    transition: all 0.3s ease;
+    border-radius: 50px;
+    padding: 0.75rem 2.5rem;
+    font-weight: 600;
+}
+
+.one-on-one-section .btn-primary:hover {
+    background: #4a7d28;
+    transform: scale(1.02);
+}
+
+/* ---------- Testimonial Styles ---------- */
+.testimonial-card {
+    background: #ffffff;
+    padding: 2rem;
+    border-radius: 1rem;
+    height: 100%;
+    text-align: center;
+    transition: transform 0.3s ease, box-shadow 0.3s ease;
+    box-shadow: 0 0.125rem 0.25rem rgba(0, 0, 0, 0.075);
+}
+
+.testimonial-card:hover {
+    transform: translateY(-6px);
+    box-shadow: 0 12px 30px rgba(0, 0, 0, 0.08) !important;
+}
+
+.testimonial-card .rounded-circle {
+    border: 3px solid #5d9b32;
+    box-shadow: 0 4px 12px rgba(93, 155, 50, 0.2);
+    width: 80px;
+    height: 80px;
+    object-fit: cover;
+}
+
+.testimonial-card .bi-star-fill {
+    font-size: 0.9rem;
+    color: #ffc107;
+}
+
+.testimonial-card .fst-italic {
+    font-size: 0.95rem;
+    color: #6c757d;
+    flex-grow: 1;
+}
+
+.testimonial-card .fw-bolder {
+    font-size: 0.875rem;
+}
+
+/* ---------- Contact CTA Section ---------- */
+.contact-cta-section .btn-primary {
+    background: #5d9b32;
+    border: none;
+    transition: all 0.3s ease;
+    border-radius: 50px;
+    padding: 0.75rem 2.5rem;
+    font-weight: 600;
+}
+
+.contact-cta-section .btn-primary:hover {
+    background: #4a7d28;
+    transform: scale(1.02);
+}
+
+.contact-cta-section .btn-outline-secondary {
+    border: 2px solid #f07813;
+    color: #f07813;
+    transition: all 0.3s ease;
+    border-radius: 50px;
+    padding: 0.75rem 2.5rem;
+    font-weight: 600;
+}
+
+.contact-cta-section .btn-outline-secondary:hover {
+    background: #f07813;
+    border-color: #f07813;
+    color: #ffffff;
+    transform: scale(1.02);
+}
+
+/* ---------- Footer ---------- */
+footer .small {
+    font-size: 0.875rem;
+    color: #6c757d;
+}
+footer a.small {
+    color: #6c757d;
+    text-decoration: none;
+}
+footer a.small:hover {
+    color: #5d9b32;
+}
+
+/* ---------- Utility Overrides ---------- */
+.bg-light {
+    background-color: #f8f9fa !important;
+}
+
+.bg-white {
+    background-color: #ffffff !important;
+}
+
+.shadow-sm {
+    box-shadow: 0 0.125rem 0.25rem rgba(0, 0, 0, 0.075) !important;
+}
+
+.rounded-4 {
+    border-radius: 1rem !important;
+}
+
+.border-top {
+    border-top: 1px solid #dee2e6 !important;
+}
+
+.gap-3 {
+    gap: 1rem;
+}
+.gap-2 {
+    gap: 0.5rem;
+}
+
+/* ---------- Responsive Adjustments ---------- */
+@media (max-width: 992px) {
+    .program-hero h1 {
+        font-size: 2.5rem;
+    }
+}
+
+@media (max-width: 768px) {
+    .program-hero {
+        padding: 2.5rem 1.5rem;
+        border-radius: 1rem;
+    }
+
+    .program-hero h1 {
+        font-size: 2rem;
+    }
+
+    .program-hero .lead {
+        font-size: 1.1rem;
+    }
+
+    .program-hero .badge-closed {
+        font-size: 0.85rem;
+        padding: 0.4rem 1.2rem;
+    }
+
+    .program-hero .info-badge {
+        font-size: 0.8rem;
+        padding: 0.4rem 1rem;
+    }
+
+    .mentor-card {
+        padding: 1.5rem;
+    }
+
+    .mentor-card .mentor-avatar {
+        width: 80px;
+        height: 80px;
+        font-size: 2rem;
+    }
+
+    .btn-apply {
+        padding: 0.6rem 1.5rem;
+        font-size: 0.9rem;
+    }
+
+    .testimonial-card {
+        padding: 1.5rem !important;
+    }
+
+    .testimonial-card .rounded-circle {
+        width: 60px !important;
+        height: 60px !important;
+    }
+
+    .one-on-one-section .card-body {
+        padding: 2rem !important;
+    }
+
+    .one-on-one-section .display-1 {
+        font-size: 3rem;
+    }
+
+    .contact-cta-section .btn {
+        margin-bottom: 0.5rem;
+    }
+}
+
+@media (max-width: 576px) {
+    .program-hero {
+        padding: 2rem 1rem;
+        border-radius: 0.75rem;
+    }
+
+    .program-hero .badge-closed {
+        font-size: 0.7rem;
+        padding: 0.3rem 0.8rem;
+    }
+
+    .program-hero h1 {
+        font-size: 1.6rem;
+    }
+
+    .program-hero .lead {
+        font-size: 1rem;
+    }
+
+    .program-hero .info-badge {
+        font-size: 0.7rem;
+        padding: 0.25rem 0.75rem;
+    }
+
+    .week-card {
+        border-left-width: 3px;
+        padding: 1.25rem !important;
+    }
+
+    .week-card .week-number {
+        width: 30px;
+        height: 30px;
+        font-size: 0.75rem;
+    }
+
+    .week-card h5 {
+        font-size: 0.95rem;
+    }
+
+    .week-card ul li {
+        font-size: 0.8rem;
+    }
+
+    .feature-icon-large {
+        font-size: 1.8rem;
+    }
+
+    .mentor-card {
+        padding: 1rem;
+    }
+
+    .mentor-card .mentor-avatar {
+        width: 60px;
+        height: 60px;
+        font-size: 1.5rem;
+    }
+
+    .one-on-one-section .card-body {
+        padding: 1.5rem !important;
+    }
+
+    .one-on-one-section h2 {
+        font-size: 1.3rem;
+    }
+
+    .one-on-one-section .display-1 {
+        font-size: 2.5rem;
+    }
+
+    .testimonial-card {
+        padding: 1.25rem !important;
+    }
+
+    .testimonial-card .rounded-circle {
+        width: 50px !important;
+        height: 50px !important;
+    }
+
+    .testimonial-card .fst-italic {
+        font-size: 0.85rem;
+    }
+
+    .faq-item {
+        padding: 1rem 0;
+    }
+
+    .faq-item h6 {
+        font-size: 0.95rem;
+    }
+
+    .faq-item p {
+        font-size: 0.8rem;
+    }
+
+    .btn-apply {
+        font-size: 0.85rem;
+        padding: 0.5rem 1rem;
+    }
+
+    .contact-cta-section h3 {
+        font-size: 1.2rem;
+    }
+
+    .contact-cta-section .btn {
+        font-size: 0.85rem !important;
+        padding: 0.5rem 1.25rem !important;
+        display: block;
+        width: 100%;
+        margin-bottom: 0.75rem;
+    }
+
+    .contact-cta-section .btn:last-child {
+        margin-bottom: 0;
+    }
+
+    .contact-cta-section .ms-2 {
+        margin-left: 0 !important;
+    }
+}

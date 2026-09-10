@@ -1,3 +1,4 @@
+
 <!DOCTYPE html>
 <html lang="en">
     <head>
@@ -11,123 +12,25 @@
         <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
         <link href="https://fonts.googleapis.com/css2?family=Plus+Jakarta+Sans:wght@100;200;300;400;500;600;700;800;900&display=swap" rel="stylesheet" />
         <link href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.8.1/font/bootstrap-icons.css" rel="stylesheet" />
-        <link href="css/styles.css" rel="stylesheet" />
-        <style>
-            .program-hero {
-                background: linear-gradient(135deg, #5d9b32 0%, #8cad25 50%, #f07813 100%);
-                color: #fff;
-                padding: 4rem 0;
-                border-radius: 1.5rem;
-                margin-bottom: 3rem;
-            }
-            .program-hero h1 {
-                font-size: 3rem;
-                font-weight: 800;
-            }
-            .program-hero .badge-closed {
-                background-color: rgba(255, 255, 255, 0.2);
-                color: #fff;
-                font-size: 1rem;
-                padding: 0.5rem 1.5rem;
-                border-radius: 50px;
-                backdrop-filter: blur(4px);
-                border: 1px solid rgba(255,255,255,0.3);
-            }
-            .week-card {
-                border-left: 4px solid #5d9b32;
-                transition: transform 0.2s ease, box-shadow 0.2s ease;
-            }
-            .week-card:hover {
-                transform: translateY(-4px);
-                box-shadow: 0 10px 30px rgba(0,0,0,0.08);
-            }
-            .week-card .week-number {
-                background: #5d9b32;
-                color: #fff;
-                width: 36px;
-                height: 36px;
-                display: flex;
-                align-items: center;
-                justify-content: center;
-                border-radius: 50%;
-                font-weight: 700;
-                font-size: 0.9rem;
-                flex-shrink: 0;
-            }
-            .feature-icon-large {
-                font-size: 2.5rem;
-                color: #5d9b32;
-            }
-            .btn-apply {
-                background: #f07813;
-                border: none;
-                color: #fff;
-                font-weight: 600;
-                padding: 0.75rem 2.5rem;
-                border-radius: 50px;
-                transition: all 0.3s ease;
-            }
-            .btn-apply:hover {
-                background: #d96a0f;
-                transform: scale(1.02);
-                color: #fff;
-            }
-            .btn-apply:disabled {
-                opacity: 0.6;
-                cursor: not-allowed;
-                transform: none;
-            }
-            .faq-item {
-                border-bottom: 1px solid #e9ecef;
-                padding: 1.25rem 0;
-            }
-            .faq-item:last-child {
-                border-bottom: none;
-            }
-            .faq-item h5 {
-                font-weight: 700;
-                color: #212529;
-            }
-            .mentor-card {
-                background: #f8f9fa;
-                border-radius: 1rem;
-                padding: 2rem;
-                text-align: center;
-            }
-            .mentor-card .mentor-avatar {
-                width: 100px;
-                height: 100px;
-                background: linear-gradient(135deg, #5d9b32, #f07813);
-                border-radius: 50%;
-                display: flex;
-                align-items: center;
-                justify-content: center;
-                margin: 0 auto 1rem;
-                font-size: 2.5rem;
-                color: #fff;
-            }
-            @media (max-width: 768px) {
-                .program-hero h1 {
-                    font-size: 2.2rem;
-                }
-            }
-        </style>
+        <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.2.3/dist/css/bootstrap.min.css" rel="stylesheet" />
+        <!-- External CSS -->
+        <link href="css/mentorship-css.css" rel="stylesheet" />
     </head>
     <body class="d-flex flex-column h-100 bg-light">
         <main class="flex-shrink-0">
-            <!-- Navigation (matching your portfolio) -->
+            <!-- Navigation -->
             <nav class="navbar navbar-expand-lg navbar-light bg-white py-3">
                 <div class="container px-5">
-                    <a class="navbar-brand" href="index.html"><span class="fw-bolder text-primary">Dickson Mbeya</span></a>
-                    <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation"><span class="navbar-toggler-icon"></span></button>
+                    <a class="navbar-brand d-flex align-items-center" href="index.html">
+                        <img src="assets/logo.png" alt="R for GIS & Remote Sensing Logo" height="40" class="me-2">
+                        <span class="fw-bolder text-primary">R for GIS & RS Mentorship Program</span></a>
+                    <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
+                        <span class="navbar-toggler-icon"></span>
+                    </button>
                     <div class="collapse navbar-collapse" id="navbarSupportedContent">
                         <ul class="navbar-nav ms-auto mb-2 mb-lg-0 small fw-bolder">
                             <li class="nav-item"><a class="nav-link" href="index.html">Home</a></li>
-                            <li class="nav-item"><a class="nav-link" href="resume.html">Resume</a></li>
-                            <li class="nav-item"><a class="nav-link" href="projects.html">Projects</a></li>
-                            <li class="nav-item"><a class="nav-link" href="map-gallery.html">Map Gallery</a></li>
-                            <li class="nav-item"><a class="nav-link" href="mentorship.html">Mentorship</a></li>
-                            <li class="nav-item"><a class="nav-link" href="blog.html">Blog</a></li>
+                            <li class="nav-item"><a class="nav-link" href="https://www.dicksonmbeya.com">About the mentor</a></li>
                             <li class="nav-item"><a class="nav-link" href="contact.html">Contact</a></li>
                         </ul>
                     </div>
@@ -136,24 +39,24 @@
 
             <!-- Program Hero -->
             <section class="container px-5">
-                <div class="program-hero text-center px-4 py-5">
-                    <span class="badge-closed d-inline-block mb-3">
-                        <i class="bi bi-exclamation-circle me-1"></i> APPLICATIONS ARE NOW CLOSED
+                <div class="program-hero text-center">
+                    <span class="badge-closed mb-3" style="background-color: orange;">
+                        <i class="bi bi-exclamation-circle me-1"></i> APPLICATIONS FOR 2026 PROGRAM NOW OPEN
                     </span>
-                    <h1 class="display-4 fw-bolder">🌍 R for GIS &amp; Remote Sensing</h1>
+                    <h1 class="display-4 fw-bolder"> <- R for GIS &amp; Remote Sensing Mentorship Program - 2026 Edition</h1>
                     <p class="lead mb-4">Transform R into a Geospatial Powerhouse</p>
                     <p class="mb-4 opacity-75" style="max-width: 700px; margin: 0 auto 1.5rem;">
-                        Join our 5-week virtual mentorship program and learn how to use R for spatial data analysis, remote sensing, cartography, and geovisualization.
+                        Join the 3-week virtual mentorship program and learn how to use R for spatial data analysis, remote sensing, cartography, and geovisualization.
                     </p>
-                    <div class="d-flex flex-wrap justify-content-center gap-3 small">
-                        <span class="bg-white bg-opacity-25 px-4 py-2 rounded-pill"><i class="bi bi-calendar-event me-2"></i>5 Weeks</span>
-                        <span class="bg-white bg-opacity-25 px-4 py-2 rounded-pill"><i class="bi bi-clock me-2"></i>Starts: 21 Oct 2025</span>
-                        <span class="bg-white bg-opacity-25 px-4 py-2 rounded-pill"><i class="bi bi-laptop me-2"></i>Online (Live + Assignments)</span>
-                        <span class="bg-white bg-opacity-25 px-4 py-2 rounded-pill"><i class="bi bi-people me-2"></i>25 Mentees</span>
+                    <div class="d-flex flex-wrap justify-content-center gap-3">
+                        <span class="info-badge"><i class="bi bi-calendar-event me-2"></i>3 Weeks</span>
+                        <span class="info-badge"><i class="bi bi-clock me-2"></i>Starts: TBA</span>
+                        <span class="info-badge"><i class="bi bi-laptop me-2"></i>Online (Live + Assignments)</span>
+                        <span class="info-badge"><i class="bi bi-people me-2"></i>25 Mentees</span>
                     </div>
                 </div>
             </section>
-
+            
             <!-- Main Content -->
             <section class="container px-5 mb-5">
                 <div class="row gx-5">
@@ -161,74 +64,75 @@
                     <div class="col-lg-8">
                         <!-- What You'll Learn -->
                         <div class="mb-5">
-                            <h2 class="fw-bolder mb-4"><span class="text-gradient d-inline">🧭 What You'll Learn</span></h2>
-                            <div class="row g-4">
+                            <h2 class="fw-bolder mb-4"><span class="text-gradient">🧭 What You'll Learn</span></h2>
+                            <div class="row g-4" id="curriculumGrid">
                                 <!-- Week 1 -->
                                 <div class="col-md-6">
-                                    <div class="card week-card h-100 shadow-sm border-0 rounded-4 p-4">
+                                    <div class="week-card">
                                         <div class="d-flex align-items-center gap-3 mb-3">
                                             <span class="week-number">1</span>
-                                            <h5 class="fw-bolder mb-0">Foundations of R for Geospatial Work</h5>
+                                            <h5 class="fw-bolder mb-0">Foundations of R</h5>
                                         </div>
-                                        <ul class="list-unstyled small text-muted mb-0">
-                                            <li><i class="bi bi-check-circle-fill text-primary me-2"></i>R &amp; RStudio setup</li>
-                                            <li><i class="bi bi-check-circle-fill text-primary me-2"></i>R basics &amp; spatial data types</li>
-                                            <li><i class="bi bi-check-circle-fill text-primary me-2"></i>Coordinate Reference Systems (CRS)</li>
-                                            <li><i class="bi bi-check-circle-fill text-primary me-2"></i>Basic mapping with <code>ggplot2</code> &amp; <code>sf</code></li>
+                                        <ul class="list-unstyled mb-0">
+                                            <li><i class="bi bi-check-circle-fill me-2"></i>R &amp; RStudio setup</li>
+                                            <li><i class="bi bi-check-circle-fill me-2"></i>R basics &amp; spatial data types</li>
+                                            <li><i class="bi bi-check-circle-fill me-2"></i>Coordinate Reference Systems (CRS)</li>
+                                            <li><i class="bi bi-check-circle-fill me-2"></i>Basic mapping with <code>ggplot2</code> &amp; <code>sf</code></li>
                                         </ul>
                                     </div>
                                 </div>
                                 <!-- Week 2 -->
                                 <div class="col-md-6">
-                                    <div class="card week-card h-100 shadow-sm border-0 rounded-4 p-4">
+                                    <div class="week-card">
                                         <div class="d-flex align-items-center gap-3 mb-3">
                                             <span class="week-number">2</span>
                                             <h5 class="fw-bolder mb-0">Vector Data Analysis</h5>
                                         </div>
-                                        <ul class="list-unstyled small text-muted mb-0">
-                                            <li><i class="bi bi-check-circle-fill text-primary me-2"></i>Spatial joins, buffers, clipping</li>
-                                            <li><i class="bi bi-check-circle-fill text-primary me-2"></i>Attribute queries &amp; thematic mapping with <code>tmap</code></li>
+                                        <ul class="list-unstyled mb-0">
+                                            <li><i class="bi bi-check-circle-fill me-2"></i>Spatial joins, buffers, clipping</li>
+                                            <li><i class="bi bi-check-circle-fill me-2"></i>Attribute queries &amp; thematic mapping with <code>tmap</code></li>
                                         </ul>
                                     </div>
                                 </div>
                                 <!-- Week 3 -->
                                 <div class="col-md-6">
-                                    <div class="card week-card h-100 shadow-sm border-0 rounded-4 p-4">
+                                    <div class="week-card">
                                         <div class="d-flex align-items-center gap-3 mb-3">
                                             <span class="week-number">3</span>
-                                            <h5 class="fw-bolder mb-0">Raster Data &amp; Remote Sensing</h5>
+                                            <h5 class="fw-bolder mb-0">Raster &amp; Remote Sensing</h5>
                                         </div>
-                                        <ul class="list-unstyled small text-muted mb-0">
-                                            <li><i class="bi bi-check-circle-fill text-primary me-2"></i>Working with satellite imagery</li>
-                                            <li><i class="bi bi-check-circle-fill text-primary me-2"></i>NDVI &amp; other spectral indices</li>
-                                            <li><i class="bi bi-check-circle-fill text-primary me-2"></i>Image classification &amp; time series analysis</li>
+                                        <ul class="list-unstyled mb-0">
+                                            <li><i class="bi bi-check-circle-fill me-2"></i>Working with satellite imagery</li>
+                                            <li><i class="bi bi-check-circle-fill me-2"></i>NDVI &amp; other spectral indices</li>
+                                            <li><i class="bi bi-check-circle-fill me-2"></i>Image classification &amp; time series</li>
+                                            <li><i class="bi bi-check-circle-fill me-2"></i>Google Earth Engine in R</li>
                                         </ul>
                                     </div>
                                 </div>
                                 <!-- Week 4 -->
                                 <div class="col-md-6">
-                                    <div class="card week-card h-100 shadow-sm border-0 rounded-4 p-4">
+                                    <div class="week-card">
                                         <div class="d-flex align-items-center gap-3 mb-3">
                                             <span class="week-number">4</span>
-                                            <h5 class="fw-bolder mb-0">Cartography &amp; Geovisualization</h5>
+                                            <h5 class="fw-bolder mb-0">Cartography &amp; Visualization</h5>
                                         </div>
-                                        <ul class="list-unstyled small text-muted mb-0">
-                                            <li><i class="bi bi-check-circle-fill text-primary me-2"></i>Map styling, layout &amp; exporting</li>
-                                            <li><i class="bi bi-check-circle-fill text-primary me-2"></i>Interactive maps with <code>leaflet</code></li>
+                                        <ul class="list-unstyled mb-0">
+                                            <li><i class="bi bi-check-circle-fill me-2"></i>Map styling, layout &amp; exporting</li>
+                                            <li><i class="bi bi-check-circle-fill me-2"></i>Interactive maps with <code>leaflet</code></li>
                                         </ul>
                                     </div>
                                 </div>
                                 <!-- Week 5 -->
                                 <div class="col-md-6">
-                                    <div class="card week-card h-100 shadow-sm border-0 rounded-4 p-4">
+                                    <div class="week-card">
                                         <div class="d-flex align-items-center gap-3 mb-3">
                                             <span class="week-number">5</span>
-                                            <h5 class="fw-bolder mb-0">Capstone Projects &amp; Career</h5>
+                                            <h5 class="fw-bolder mb-0">Capstone &amp; Career</h5>
                                         </div>
-                                        <ul class="list-unstyled small text-muted mb-0">
-                                            <li><i class="bi bi-check-circle-fill text-primary me-2"></i>Final project presentations</li>
-                                            <li><i class="bi bi-check-circle-fill text-primary me-2"></i>Publishing maps &amp; dashboards</li>
-                                            <li><i class="bi bi-check-circle-fill text-primary me-2"></i>Career guidance in geospatial data science</li>
+                                        <ul class="list-unstyled mb-0">
+                                            <li><i class="bi bi-check-circle-fill me-2"></i>Final project presentations</li>
+                                            <li><i class="bi bi-check-circle-fill me-2"></i>Publishing maps &amp; dashboards</li>
+                                            <li><i class="bi bi-check-circle-fill me-2"></i>Career guidance in geospatial data science</li>
                                         </ul>
                                     </div>
                                 </div>
@@ -237,7 +141,7 @@
 
                         <!-- Why Join -->
                         <div class="mb-5">
-                            <h2 class="fw-bolder mb-4"><span class="text-gradient d-inline">🎯 Why Join?</span></h2>
+                            <h2 class="fw-bolder mb-4"><span class="text-gradient">🎯 Why Join?</span></h2>
                             <div class="row g-3">
                                 <div class="col-sm-6">
                                     <div class="d-flex align-items-center gap-3 bg-white p-3 rounded-4 shadow-sm h-100">
@@ -272,17 +176,21 @@
                         <!-- Mentor Card -->
                         <div class="card shadow border-0 rounded-4 mb-4">
                             <div class="card-body p-4">
-                                <h5 class="fw-bolder mb-3">👨‍🏫 Meet Your Mentor</h5>
+                                <h5 class="fw-bolder mb-3", style="text-align: center;">Meet Your Mentor</h5>
                                 <div class="mentor-card">
-                                    <div class="mentor-avatar"><i class="bi bi-person"></i></div>
+                                  <!--  <div class="mentor-avatar"><i class="bi bi-person"></i></div>-->
+                                    <img src="assets/profile.png" alt="Dickson Mbeya" class="mentor-avatar-img" style="display: block; margin: 0 auto;>
                                     <h5 class="fw-bolder mb-1">Dickson Mbeya</h5>
                                     <p class="small text-muted">BSc, MSc.</p>
                                     <p class="small mb-2">Award-winning cartographer, Geospatial Educator &amp; GIS Specialist</p>
-                                    <div class="d-flex flex-wrap justify-content-center gap-1 small text-muted">
-                                        <span class="badge bg-light text-dark">GIS in R webinar</span>
-                                        <span class="badge bg-light text-dark">GEE for beginners</span>
-                                        <span class="badge bg-light text-dark">QGIS for beginners</span>
-                                        <span class="badge bg-light text-dark">QGIS Mastery Program</span>
+                                    <div class="d-flex flex-wrap justify-content-center gap-1">
+                                        <span class="badge">GIS in R webinar</span>
+                                        <span class="badge">GEE for beginners</span>
+                                        <span class="badge">QGIS for beginners</span>
+                                        <span class="badge">QGIS Mastery</span>
+                                        <a href="https://www.dicksonmbeya.com" class="btn btn-primary btn-lg px-5 py-3 fs-6 fw-bolder" style="background: #5d9b32; border: none; transition: all 0.3s ease; border-radius: 50px; padding:0.75rem 2.5rem; font-weight: 600;">
+                                            About the mentor
+                                        </a>
                                     </div>
                                 </div>
                             </div>
@@ -291,12 +199,9 @@
                         <!-- Apply / Status -->
                         <div class="card shadow border-0 rounded-4 mb-4">
                             <div class="card-body p-4 text-center">
-                                <h5 class="fw-bolder mb-3">📝 Applications</h5>
-                                <div class="alert alert-secondary mb-3" role="alert">
-                                    <i class="bi bi-exclamation-triangle-fill me-2"></i> Applications are now <strong>closed</strong>.
-                                </div>
-                                <p class="small text-muted">Deadline: 12 October 2025</p>
-                                <button class="btn btn-apply w-100" disabled>Apply Here (Closed)</button>
+                                <h5 class="fw-bolder mb-3">📝 Applications</h5>                        
+                                <p class="small text-muted">Deadline: 17 September 2026</p>
+                                <button class="btn btn-apply w-100"> <a href="https://forms.gle/Ego4WrgyazuYkWfh7" class="text-decoration-none text-white">Apply Here</a></button>
                             </div>
                         </div>
 
@@ -305,16 +210,16 @@
                             <div class="card-body p-4">
                                 <h5 class="fw-bolder mb-3">❓ FAQs</h5>
                                 <div class="faq-item">
-                                    <h6 class="fw-bold">Do I need prior R experience?</h6>
-                                    <p class="small text-muted mb-0">Basic familiarity helps, but we’ll guide you through the essentials.</p>
+                                    <h6>Do I need prior R experience?</h6>
+                                    <p>Basic familiarity helps, but we'll guide you through the essentials.</p>
                                 </div>
                                 <div class="faq-item">
-                                    <h6 class="fw-bold">Will sessions be recorded?</h6>
-                                    <p class="small text-muted mb-0">Yes, all sessions will be available for replay.</p>
+                                    <h6>Will sessions be recorded?</h6>
+                                    <p>Yes, all sessions will be available for replay.</p>
                                 </div>
                                 <div class="faq-item">
-                                    <h6 class="fw-bold">Is there a certificate?</h6>
-                                    <p class="small text-muted mb-0">Yes, participants who complete the program will receive a certificate.</p>
+                                    <h6>Is there a certificate?</h6>
+                                    <p>Yes, participants who complete the program will receive a certificate.</p>
                                 </div>
                             </div>
                         </div>
@@ -322,10 +227,111 @@
                 </div>
             </section>
 
+            <!-- One-on-One Mentorship Section -->
+            <section class="py-5 bg-white one-on-one-section">
+                <div class="container px-5">
+                    <div class="row justify-content-center">
+                        <div class="col-lg-10 col-xl-9">
+                            <div class="card overflow-hidden shadow rounded-4 border-0">
+                                <div class="card-body p-5 text-center">
+                                    <div class="display-1"><i class="bi bi-person-video"></i></div>
+                                    <h2 class="fw-bolder mt-3">One-on-One Mentorship</h2>
+                                    <p class="text-muted mx-auto" style="max-width: 600px;">Looking for personalized guidance? I offer one-on-one mentorship sessions tailored to your specific geospatial learning goals, career development, or research support needs.</p>
+                                    <a href="contact.html" class="btn btn-primary btn-lg px-5 py-3 fs-6 fw-bolder">
+                                        <i class="bi bi-envelope me-2"></i>Request a Session
+                                    </a>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </section>
+
+<!-- Cohort One Enrollment Section -->
+<section class="container px-5 mb-5">
+    <div class="cohort-section">
+        <div class="row g-4 align-items-center">
+            <div class="col-lg-6">
+                <div class="cohort-content">
+                    <span class="cohort-badge">🎓 Cohort One</span>
+                    <h2 class="cohort-title">Enrollment</h2>
+                    <p class="cohort-description">Our inaugural cohort brought together passionate learners from around the world, creating a diverse and collaborative learning community.</p>
+                    <div class="cohort-stats">
+                        <div class="stat-item">
+                            <span class="stat-number">64</span>
+                            <span class="stat-label">Participants Enrolled</span>
+                        </div>
+                        <div class="stat-item">
+                            <span class="stat-number">31</span>
+                            <span class="stat-label">Countries</span>
+                        </div>
+                    </div>
+                </div>
+            </div>
+            <div class="col-lg-6">
+                <div class="cohort-map-container">
+                    <img src="assets/cohortone-map.png" alt="Cohort One - 64 participants from 31 countries" class="cohort-map-image">
+                </div>
+            </div>
+        </div>
+    </div>
+</section>
+
+
+            <!-- Testimonial Section -->
+            <section class="py-5 bg-light">
+                <div class="container px-5">
+                    <div class="text-center mb-5">
+                        <h2 class="display-6 fw-bolder"><span class="text-gradient">What Mentees Say</span></h2>
+                    </div>
+                    <div class="row g-4 justify-content-center">
+                        <div class="col-md-4">
+                            <div class="testimonial-card">                                
+                                <div class="mb-2">
+                                    <i class="bi bi-star-fill"></i>
+                                    <i class="bi bi-star-fill"></i>
+                                    <i class="bi bi-star-fill"></i>
+                                    <i class="bi bi-star-fill"></i>
+                                    <i class="bi bi-star-fill"></i>
+                                </div>
+                                <p class="fst-italic">"I have gained alot and want to sincerly thank Dickson for starting from the foundation."</p>
+                                <p class="fw-bolder mt-3 mb-0 small">— John Oluwafemi Ayoola, Nigeria</p>
+                            </div>
+                        </div>
+                        <div class="col-md-4">
+                            <div class="testimonial-card">                              
+                                <div class="mb-2">
+                                    <i class="bi bi-star-fill"></i>
+                                    <i class="bi bi-star-fill"></i>
+                                    <i class="bi bi-star-fill"></i>
+                                    <i class="bi bi-star-fill"></i>
+                                    <i class="bi bi-star-fill"></i>
+                                </div>
+                                <p class="fst-italic">"I have gained amazing knowledge which I will use in my professional life.Integrating cartography and remote sensing in RStudio was the most interesting thing I learned."</p>
+                                <p class="fw-bolder mt-3 mb-0 small">— Mohamed Samake, Togo</p>
+                            </div>
+                        </div>
+                        <div class="col-md-4">
+                            <div class="testimonial-card">
+                                <div class="mb-2">
+                                    <i class="bi bi-star-fill"></i>
+                                    <i class="bi bi-star-fill"></i>
+                                    <i class="bi bi-star-fill"></i>
+                                    <i class="bi bi-star-fill"></i>
+                                    <i class="bi bi-star-fill"></i>
+                                </div>
+                                <p class="fst-italic">"I'm glad that I got to join this program.I was actually exposed to R before, but it was not for cartography and remote sensing. I want to really thank you Dickson for your time and for your effort."</p>
+                                <p class="fw-bolder mt-3 mb-0 small">— Elizabeth Minga, Zambia</p>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </section>
+
             <!-- Contact / Footer CTA -->
-            <section class="py-5 bg-white">
+            <section class="py-5 bg-white contact-cta-section">
                 <div class="container px-5 text-center">
-                    <h3 class="fw-bolder mb-3">📬 Have Questions?</h3>
+                    <h3 class="fw-bolder mb-3">Have Questions?</h3>
                     <p class="text-muted mb-4">Feel free to reach out for any inquiries about the program.</p>
                     <a href="mailto:dickmbeya@gmail.com" class="btn btn-primary btn-lg px-5 py-3 rounded-pill">
                         <i class="bi bi-envelope me-2"></i>Email Dickson
@@ -337,11 +343,13 @@
             </section>
         </main>
 
-        <!-- Footer (matching portfolio) -->
+        <!-- Footer -->
         <footer class="bg-white py-4 mt-auto border-top">
             <div class="container px-5">
                 <div class="row align-items-center justify-content-between flex-column flex-sm-row">
-                    <div class="col-auto"><div class="small m-0">Copyright &copy; Dickson Mbeya 2026</div></div>
+                    <div class="col-auto">
+                        <div class="small m-0"> &copy; 2026 Dickson Mbeya</div>
+                    </div>
                     <div class="col-auto">
                         <a class="small" href="contact.html">Contact</a>
                     </div>
@@ -349,7 +357,7 @@
             </div>
         </footer>
 
+        <!-- Bootstrap JS -->
         <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.2.3/dist/js/bootstrap.bundle.min.js"></script>
-        <script src="js/scripts.js"></script>
     </body>
 </html>
