@@ -2,6 +2,22 @@
     {
         
         "category": "reference",
+        "img": "assets/maps/Mercator.png",
+        "title": "Continents of the world - Mercator Projection",
+        "desc": "Mercator is a conformal cylindrical map projection that was originally created by Gerardus Mercator in 1569 to display accurate compass bearings for sea travel. On September 04, 2026, the United Nations Genral Assembly passed the resolution to stop using the Mercator map as the official map o fthe world in favour of the Equal Earth map afetr African countries complained that the Mercator map did not correctly represnt the size of the African Continent.",
+        "date": "2026-09-16"
+    },
+    {
+        
+        "category": "reference",
+        "img": "assets/maps/fullerb.png",
+        "title": "Continents of the world - Fuller Projection",
+        "desc": "The Fuller Map Projection is the only flat map of the entire surface of the Earth which reveals our planet as one island in one ocean, without any visually obvious distortion of the relative shapes and sizes of the land areas, and without splitting any continents.",
+        "date": "2026-09-16"
+    },
+    {
+        
+        "category": "reference",
         "img": "assets/maps/likoma.png",
         "title": "The Likoma Island.",
         "desc": "Likoma Island, Northern Malawi.",
